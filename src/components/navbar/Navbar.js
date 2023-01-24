@@ -5,12 +5,11 @@ import "./Navbar.css"
 function Navbar() {
   return (
     <nav className='navbar'>
-        <section className='profile'>
-            <img src='' alt = ""/>
-            <h3>user name</h3>
+        <section className='brand_name'>
+          <img src='\images\sigma_v1_logo.png' alt='sigma_app' className='brand_logo'/>
         </section>
         <ul className='menu'>
-            <li><Link to="/"><i className='bi bi-house-door'></i> <span>Home</span></Link></li>
+            <li className='active'><Link to="/"><i className='bi bi-house-door'></i> <span>Home</span></Link></li>
             <li><Link to="/"><i className='bi bi-people'></i> <span>People</span></Link></li>
             <li><Link to="/"><i className='bi bi-chat'></i> <span>Chats</span></Link></li>
             <li><Link to="/"><i className='bi bi-person'></i> <span>Profile</span></Link></li>
