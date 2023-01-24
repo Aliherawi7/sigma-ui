@@ -1,0 +1,58 @@
+
+
+.whats_new{
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    height: max-content;
+}
+
+.whats_new input{
+    margin-left: 10px;
+    width: 100%;
+}
+
+
+/* post styles */
+
+.connection_post{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.post_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.post_header .account_info{
+    display: flex;
+}
+.post_header .account_info .account_name_date{
+    text-align: left;
+    margin-left: 16px;
+}
+.post_header .account_info .account_name_date h4{
+    font-size: 16px;
+}
+.post_header .account_info .account_name_date p{
+    font-size: 10px;
+}
+
+.post_body{
+    padding: 10px;
+    text-align: left;
+    margin: 20px 0 10px 0;
+}
+.post_body .image_containter{
+    display: flex;
+    flex-flow: wrap;
+}
+.post_body img{
+    margin: 10px;
+    border-radius: 10px;
+}
