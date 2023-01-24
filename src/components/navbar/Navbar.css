@@ -1,15 +1,21 @@
 .navbar {
-    width: 180px;
+    width: 160px;
     padding: 10px;
-    padding-right : 0;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-color: #fff;
-    position: absolute;
-    top: 40px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
     left: 0;
-    bottom: 0;;
+    bottom: 0;
+    border-right: 1px solid #363b5e45;
 }
+.brand_logo{
+    width: 150px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+
 .navbar ul{
     margin-top: 50px;
     list-style: none;
@@ -17,43 +23,26 @@
 .navbar ul li{
     text-align: left;
     padding: 5px 15px;
-    border-top-left-radius: 40px;
-    border-bottom-left-radius: 40px;
+    border-radius: 10px;
+    border: 1px solid transparent;
     user-select: none;
     font-size: 20px;
+
 }
 ul li span{
-    font-weight: bold;
+    font-weight: 300;
     font-size: 14px;
-    padding: 0 8px;
+    padding: 0 10px;
 }
 ul li a{
     display: flex;
     align-items: center;
 }
 
-.navbar ul li:hover::after{
-    content: '';
-    position: absolute;
-    top: -30px;
-    right: 0;
-    height: 30px;
-    width: 30px;
-    border-bottom-right-radius: 50%;
-    box-shadow: 4px 3px 1px 2px #f44333;
-}
-.navbar ul li:hover::before{
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    right: 0;
-    height: 30px;
-    width: 30px;
-    border-top-right-radius: 50%;
-    box-shadow: 4px -4px 1px 2px #f44333;
-}
-.navbar ul li:hover{
+.active, .navbar ul li:hover{
     cursor: pointer;
     position: relative;
-    background-color: #f44333;
+    background: linear-gradient(to right, var(--main_color_light), var(--main_color));
 }
+
+
