@@ -5,7 +5,10 @@ export const ButtonTypes = {
 export const Icons = {
     post: "bi bi-brush",
     link: "bi bi-link-45deg",
-    threeDots: "bi bi-three-dots"
+    threeDots: "bi bi-three-dots",
+    search: "bi bi-search",
+    notification: "bi bi-bell",
+    
 }
 
 
