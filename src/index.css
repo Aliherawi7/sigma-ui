@@ -37,6 +37,14 @@
   background-color: var(--main_color);
 }
 
+*::selection{
+  background-color: var(--main_color);
+}
+
+input::placeholder{
+  color: #fff;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -47,7 +55,7 @@ a{
 }
 
 a:active, button:active{
-  transform: scale(0.98);
+  transform: scale(0.95);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -67,11 +75,23 @@ a:active, button:active{
   padding: 5px 10px;
 }
 
-.profile_avatar{
-  width: 52px;
-  border-radius: 18px;
+.profile_avatar, .profile_avatar_small{
+  width: 50px;
+  border-radius: 50%;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
+}
+.profile_avatar_small{
+  width: 30px;
+}
+
+img{
+  -webkit-user-drag: none;
+}
+
+.display_flex_align_center{
+  display: flex;
+  align-items: center;
 }
 
