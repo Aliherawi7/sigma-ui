@@ -11,8 +11,8 @@ function Navbar() {
         <ul className='menu'>
             <li className='active'><Link to="/"><i className='bi bi-house-door'></i> <span>Home</span></Link></li>
             <li><Link to="/"><i className='bi bi-people'></i> <span>People</span></Link></li>
-            <li><Link to="/"><i className='bi bi-chat'></i> <span>Chats</span></Link></li>
-            <li><Link to="/"><i className='bi bi-person'></i> <span>Profile</span></Link></li>
+            <li><Link to="/chat"><i className='bi bi-chat'></i> <span>Chats</span></Link></li>
+            <li><Link to="/load"><i className='bi bi-person'></i> <span>Profile</span></Link></li>
             <li><Link to="/"><i className='bi bi-gear'></i> <span>Settings</span></Link></li>
             
         </ul>
