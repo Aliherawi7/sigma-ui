@@ -5,7 +5,7 @@ import { Icons, ButtonTypes } from '../../constants/UiConstant'
 
 function Home() {
   return (
-    <section className='home'>
+    <section className='home fade_in'>
       <div className='greeting'>
         <h3>Hi dear user</h3>
       </div>
