@@ -46,4 +46,59 @@
     font-size: 20px;
 }
 
+.requests h2{
+    text-align: left;
+    margin-left: 10px;
+    line-height: 16px;
+}
+
+.request{
+    align-items: flex-start;
+}
+
+.name_request{
+    text-align: left;
+    margin-left: 10px;
+    line-height: 16px;
+}
+.name_request span{
+    font-size: 14px;
+    font-weight: 100;
+    color: #ddd;
+}
+
+.accept_reject_container {
+    justify-content: space-evenly;
+}
+.accept_reject_container button{
+    padding: 4px 20px;
+    width: 100px;
+}
+
+
+.section_splitor{
+    border-top: 1px solid #dddddd1f;
+    margin-top: 40px;
+}
+.section_splitor .header_container{
+    justify-content: space-between;
+}
+
+.section_splitor h3{
+    text-align: left;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.section_splitor .total_budge{
+    padding: 0px 10px;
+    max-width: min-content;
+    border-radius: 5px;
+    background: var(--light_red);
+    font-size: 10px;
+}
+
+.contacts_container .profile_account{
+    margin: 10px 0;
+}
+
 
