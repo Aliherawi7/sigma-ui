@@ -54,10 +54,12 @@ a{
   color: #000;
 }
 
-a:active, button:active{
+a:active, button:active, .click_effect:active{
   transform: scale(0.95);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  user-select: none;
 }
+
 
 
 .box_shadow{
@@ -77,7 +79,7 @@ a:active, button:active{
 
 .profile_avatar, .profile_avatar_small{
   width: 50px;
-  border-radius: 50%;
+  border-radius: 15%;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
@@ -90,8 +92,83 @@ img{
   -webkit-user-drag: none;
 }
 
+/* flex */
+.display_flex{
+  display: flex;
+}
 .display_flex_align_center{
   display: flex;
   align-items: center;
 }
+.flex_direction_column{
+  flex-direction: column;
+}
+
+/* positions */
+
+.position_relative{
+  position: relative;
+}
+.position_absolute{
+  position: absolute;
+}
+
+/* texts */
+.none_selectable{
+  user-select: none;
+}
+
+/* search bar */
+
+ .search_bar{
+  display: flex;
+  align-items: center;
+}
+
+ .search_bar i{
+  position: absolute;
+  padding-left: 10px;
+}
+ .search_bar input{
+  width: 50px;
+  transition: width .3s cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid #dddddd21;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 30px;
+}
+ .search_bar input:focus{
+  width: 200px;
+}
+
+/* badge  */
+.badge{
+  padding: 0px 10px;
+  max-width: min-content;
+  border-radius: 5px;
+  background: var(--light_red);
+  font-size: 10px;
+}
+
+
+
+/* animations */
+.fade_in {
+  animation-name: fade-in;
+  animation-duration: .5s;
+  animation-timing-function: cubic-bezier(0.55, 0.01, 0.12, 0.97);
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
 
