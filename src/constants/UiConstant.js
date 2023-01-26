@@ -1,5 +1,6 @@
 export const ButtonTypes = {
-    general: "general"
+    general: "general",
+    gray: "gray"
 }
 
 export const Icons = {
@@ -8,6 +9,8 @@ export const Icons = {
     threeDots: "bi bi-three-dots",
     search: "bi bi-search",
     notification: "bi bi-bell",
+    tick:"bi bi-check-lg",
+    x: "bi bi-x"
     
 }
 
