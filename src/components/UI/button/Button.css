@@ -10,3 +10,7 @@
 .general{
     background: linear-gradient(to right, var(--main_color_light), var(--main_color));
 }
+
+.gray{
+    background: linear-gradient(to right, #93878769, #605b5b5d);
+}
