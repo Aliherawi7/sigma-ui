@@ -16,11 +16,12 @@
 
 
 
-.navbar ul{
+.navbar .menu{
     margin-top: 50px;
     list-style: none;
 }
-.navbar ul li{
+.navbar .menu li{
+    margin: 4px 0;
     text-align: left;
     padding: 5px 15px;
     border-radius: 10px;
@@ -29,17 +30,17 @@
     font-size: 20px;
 
 }
-ul li span{
+.menu li span{
     font-weight: 300;
     font-size: 14px;
     padding: 0 10px;
 }
-ul li a{
+.menu li a{
     display: flex;
     align-items: center;
 }
 
-.active, .navbar ul li:hover{
+.active, .navbar .menu li:hover{
     cursor: pointer;
     position: relative;
     background: linear-gradient(to right, var(--main_color_light), var(--main_color));
