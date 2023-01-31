@@ -10,7 +10,11 @@ export const Icons = {
     search: "bi bi-search",
     notification: "bi bi-bell",
     tick:"bi bi-check-lg",
-    x: "bi bi-x"
+    x: "bi bi-x",
+    send: "bi bi-send",
+    emojis:{
+        smile: "bi bi-emoji-smile",
+    }
     
 }
 
