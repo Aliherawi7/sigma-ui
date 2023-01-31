@@ -1,0 +1,28 @@
+
+.login{
+    position: fixed;
+    background-image: url("/public/images/login_page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login .brand_name img{
+    margin-bottom: 30px;
+    width: 200px;
+}
+
+.login .input{
+    background-color: #0009;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+.login .btn{
+    margin-top: 5px;
+}
