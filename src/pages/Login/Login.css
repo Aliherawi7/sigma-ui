@@ -1,10 +1,6 @@
 
 .login{
     position: fixed;
-    background-image: url("/public/images/login_page.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    backdrop-filter: #ddd;
     top: 0;
     bottom: 0;
     left: 0;
@@ -12,6 +8,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.login::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url("/public/images/login_page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: blur(5px);
 }
 .login .brand_name img{
     margin-bottom: 30px;
