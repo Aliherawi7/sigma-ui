@@ -60,6 +60,12 @@ a:active, button:active, .click_effect:active{
   user-select: none;
 }
 
+.element_touch:active{
+  transform: scale(0.99);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  user-select: none;
+}
+
 
 
 .box_shadow{
@@ -148,6 +154,15 @@ img{
   border-radius: 5px;
   background: var(--light_red);
   font-size: 10px;
+}
+.active_badge{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background-color: var(--light_green);
 }
 
 
