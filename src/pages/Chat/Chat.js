@@ -93,62 +93,7 @@ function Chat() {
                                 <span className='message_date'>10:20 am</span>
                             </div>
                         </div>
-                        <div className='send_message display_flex'>
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-                        </div>
-                        <div className='receive_message display_flex'>
-                            <img src='\images\ProfileImages\user2.jpg' className='profile_avatar_small' />
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message I made this line's width a little longer to test the size of message body</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                        </div>
-                        <div className='send_message display_flex'>
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-                        </div>
-                        <div className='receive_message display_flex'>
-                            <img src='\images\ProfileImages\user2.jpg' className='profile_avatar_small' />
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message I made this line's width a little longer to test the size of message body</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                        </div>
-                        <div className='send_message display_flex'>
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-                        </div>
-                        <div className='receive_message display_flex'>
-                            <img src='\images\ProfileImages\user2.jpg' className='profile_avatar_small' />
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message I made this line's width a little longer to test the size of message body</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                        </div>
-                        <div className='send_message display_flex'>
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-                        </div>
-                        <div className='receive_message display_flex'>
-                            <img src='\images\ProfileImages\user2.jpg' className='profile_avatar_small' />
-                            <div className='message_body display_flex flex_direction_column'>
-                                <p className='message_value'>Hi guys this is a test message I made this line's width a little longer to test the size of message body</p>
-                                <span className='message_date'>10:20 am</span>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div className='input_panel'>
                         <Button icon={Icons.emojis.smile} />
