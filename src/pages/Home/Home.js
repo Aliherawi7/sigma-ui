@@ -15,7 +15,7 @@ function Home() {
         <Button name={"Post"} icon={Icons.post} type={ButtonTypes.general} />
       </div>
 
-      <div className='connection_post box_shadow background_color'>
+      <div className='connection_post box_shadow background_color element_touch'>
         <div className='post_header'>
           <div className='account_info'>
             <img src='\images\ProfileImages\user3.jpg' className='profile_avatar' alt='user_avatar' />
