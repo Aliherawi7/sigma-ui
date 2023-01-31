@@ -29,7 +29,6 @@
 }
 
 *::-webkit-scrollbar{
-  background: linear-gradient(to bottom,#292c46, #251823);
   width: 8px;
 }
 *::-webkit-scrollbar-thumb{
@@ -64,6 +63,10 @@ a:active, button:active, .click_effect:active{
   transform: scale(0.99);
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   user-select: none;
+}
+
+.width_100{
+  width: 100%;
 }
 
 
