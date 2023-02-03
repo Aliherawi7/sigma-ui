@@ -24,7 +24,8 @@
 }
 .login .brand_name img{
     margin-bottom: 30px;
-    width: 200px;
+    width: 240px;
+    filter: blur(0.5px);
 }
 
 .login .input{
