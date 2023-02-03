@@ -6,7 +6,7 @@ import "./Login.css"
 function Login() {
   const navigate = useNavigate();
   return (
-    <section className='login display_flex flex_direction_column'>
+    <section className='login fade_in display_flex flex_direction_column'>
         <div className='brand_name'>
           <img src='\images\sigma_v1_logo.png' alt='sigma_app' className='brand_logo'/>
         </div>
