@@ -28,10 +28,17 @@
 }
 
 .login .input{
-    background-color: #0009;
+    background-color: #bdbdbd3b;
     border-radius: 4px;
     margin: 5px 0;
+    width: 230px;
 }
 .login .btn{
     margin-top: 5px;
+}
+
+.login .help_buttons .btn{
+    font-size: 10px;
+    padding-right: 0;
+    padding-left: 0;
 }
