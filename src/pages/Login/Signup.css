@@ -34,6 +34,7 @@
     border-radius: 50%;
     width: 220px;
     height: 220px;
+    margin-bottom: 10px;
 }
 .signup .input_profile_container:hover .upload_icon{
     height: 220px;
@@ -71,4 +72,9 @@
     background: #00000042;
     transition: height .3s;
     font-size: 25px;
+}
+
+.signup .btn{
+    width: 100%;
+    margin-top: 5px;
 }
