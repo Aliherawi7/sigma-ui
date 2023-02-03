@@ -12,13 +12,14 @@ const Chat = React.lazy(() => import('./pages/Chat/Chat'))
 const Login = React.lazy(() => import("./pages/Login/Login"))
 
 function App() {
+  const auth = false
   return (
       <div className="App">
         <main className='layout'>
           <Router>
           <Suspense fallback={<Spinner />}>
-            <Navbar />
-            <NotificationArea />
+            {auth ? <Navbar /> : null}
+            {auth ? <NotificationArea /> : null }
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/chat' element={<Chat />} />
