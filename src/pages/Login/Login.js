@@ -1,8 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/UI/button/Button'
 import "./Login.css"
 
 function Login() {
+  const navigate = useNavigate();
   return (
     <section className='login display_flex flex_direction_column'>
         <div className='brand_name'>
@@ -12,6 +14,10 @@ function Login() {
             <input type={'text'} className="input box_shadow" placeholder="email" />
             <input type={'text'} className="input box_shadow" placeholder="password" />
             <Button name="Login" type={"general"}  />
+            <div className="help_buttons display_flex justify_content_space_between">
+              <Button name={"Create acount"} cursor="pointer" click={() => navigate("/signup")}/>
+              <Button name={"forgot your password?"} cursor="pointer"/>
+            </div>
         </form>
     </section>
   )
