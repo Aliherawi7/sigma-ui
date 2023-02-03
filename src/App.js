@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Spinner from './components/UI/Loading/Spinner';
 import { Suspense } from 'react';
+import Signup from './pages/Login/Signup';
 
 const Home = React.lazy(() => import("./pages/Home/Home"))
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'))
@@ -23,6 +24,7 @@ function App() {
               <Route path='/chat' element={<Chat />} />
               <Route path='load' element={<Spinner />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
               <Route path='*' element={<h2>Not Found</h2>} />
             </Routes>
             </Suspense>
