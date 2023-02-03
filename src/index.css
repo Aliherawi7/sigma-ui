@@ -82,6 +82,12 @@ a:active, button:active, .click_effect:active{
   border: none;
   background-color: transparent;
   padding: 5px 10px;
+  border: 1px solid transparent;
+}
+.input:focus{
+  border: 1px solid var(--light_red);
+  box-shadow: 0 0 0 0.25rem rgb(246 36 102 / 34%);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .profile_avatar, .profile_avatar_small{
@@ -107,8 +113,17 @@ img{
   display: flex;
   align-items: center;
 }
+.align_items_center{
+  align-items: center;
+}
 .flex_direction_column{
   flex-direction: column;
+}
+.justify_content_space_between{
+  justify-content: space-between;
+}
+.justify_content_center{
+  justify-content: center;
 }
 
 /* positions */
