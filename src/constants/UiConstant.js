@@ -18,4 +18,6 @@ export const Icons = {
     
 }
 
+export const avatar = "/images/ProfileImages/pro.png";
+
 
