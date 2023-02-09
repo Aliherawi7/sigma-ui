@@ -12,7 +12,7 @@ const Chat = React.lazy(() => import('./pages/Chat/Chat'))
 const Login = React.lazy(() => import("./pages/Login/Login"))
 
 function App() {
-  const auth = false
+  const auth = true
   return (
       <div className="App">
         <main className='layout'>
