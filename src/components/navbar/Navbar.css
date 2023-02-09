@@ -23,7 +23,6 @@
 .navbar .menu li{
     margin: 4px 0;
     text-align: left;
-    padding: 5px 15px;
     border-radius: 10px;
     border: 1px solid transparent;
     user-select: none;
@@ -38,6 +37,7 @@
 .menu li a{
     display: flex;
     align-items: center;
+    padding: 5px 15px;
 }
 
 .active, .navbar .menu li:hover{
