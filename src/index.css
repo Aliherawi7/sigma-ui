@@ -12,6 +12,7 @@
   --main_color_light: #fc4c86ad;
   --light_red : #db2044;
   --light_blue: #3ffbe0;
+  --warning: #fbff00;
   --purple : #6b2cf5;
   --light_green : #3fff7c;
 }
@@ -85,8 +86,8 @@ a:active, button:active, .click_effect:active{
   border: 1px solid transparent;
 }
 .input:focus{
-  border: 1px solid var(--light_red);
-  box-shadow: 0 0 0 0.25rem rgb(246 36 102 / 34%);
+  border: 1px solid var(--light_red) !important;
+  box-shadow: 0 0 0 0.25rem rgb(246 36 102 / 34%) !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
