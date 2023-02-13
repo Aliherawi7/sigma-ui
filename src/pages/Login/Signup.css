@@ -66,6 +66,7 @@
     z-index: 10;
 }
 
+
 .signup .input_profile_container .upload_icon {
     cursor: pointer;
     position: absolute;
@@ -76,6 +77,14 @@
     background: #00000042;
     transition: height .3s;
     font-size: 25px;
+}
+
+.signup .select{
+    width: 100%;
+}
+.signup .select option{
+    background-color: #bdbdbd3b;
+    color: #000;
 }
 
 .signup .btn {
