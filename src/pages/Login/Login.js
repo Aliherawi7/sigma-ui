@@ -5,6 +5,7 @@ import "./Login.css"
 import { validationFuncations } from '../../Utils/ValidationsFunctions'
 import { useDispatch } from 'react-redux'
 import actions from '../../store/Actions'
+import { getCookies, setCookie } from '../../Utils/Cookie'
 
 function Login() {
   const navigate = useNavigate();
@@ -57,6 +58,11 @@ function Login() {
     }).then(data => {
       // set the data into store
       console.log(data)
+      setCookie("token",data.accessToken);
+      setCookie("userName", data.accountDTO.name +" "+ data.accountDTO.lastName)
+      setCookie("email", data.accountDTO.email)
+      localStorage.setItem("profileImage", data.accountDTO.profileImage);
+      setCookie("connections", data.accountDTO.connections)
       dispatch({
         type: actions.ADD_USER_INFO,
         payload: data
