@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Spinner from './components/UI/Loading/Spinner';
 import { Suspense } from 'react';
 import Signup from './pages/Login/Signup';
+import { useSelector } from 'react-redux';
 
 const Home = React.lazy(() => import("./pages/Home/Home"))
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'))
@@ -12,14 +13,15 @@ const Chat = React.lazy(() => import('./pages/Chat/Chat'))
 const Login = React.lazy(() => import("./pages/Login/Login"))
 
 function App() {
-  const auth = true
+  const state = useSelector(state => state.authentication)
+ 
   return (
       <div className="App">
         <main className='layout'>
           <Router>
           <Suspense fallback={<Spinner />}>
-            {auth ? <Navbar /> : null}
-            {auth ? <NotificationArea /> : null }
+            {state.isAuthenticated ? <Navbar /> : null}
+            {state.isAuthenticated ? <NotificationArea /> : null }
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/chat' element={<Chat />} />
