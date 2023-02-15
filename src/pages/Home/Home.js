@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./Home.css"
 import Button from '../../components/UI/button/Button'
 import { Icons, ButtonTypes } from '../../constants/UiConstant'
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import useRedirect from '../../hooks/useRedirect'
 
 function Home() {
+  useRedirect();
+  const state = useSelector(state => state.authentication);
+  
   return (
     <section className='home fade_in'>
       <div className='greeting'>
