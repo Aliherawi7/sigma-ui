@@ -1,33 +1,47 @@
 import actions from "./Actions";
 import { BytesToFile } from "../Utils/BlobToFile";
+import { getCookies } from "../Utils/Cookie";
+function getAuthInfoFromCookie() {
+    let data = getCookies()
+    if (data.size > 0) {
+        return {
+            isAuthenticated: true,
+            userName: data.get("userName"),
+            email: data.get("email"),
+            token: data.get("token"),
+            connections: data.get("connections"), 
+            profileImage: BytesToFile(localStorage.getItem("profileImage"), "image/png")
+        }
+    }
 
+}
 const initailState = {
-    authentication: {
+    authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie(): {
         isAuthenticated: false,
-        accessToken:"",
+        accessToken: "",
         userName: "",
         token: "",
-        profileImage:"",
+        profileImage: "",
         email: "",
-        connections:0
+        connections: 0
     }
 };
 
 const reducer = (state = initailState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case actions.ADD_USER_INFO:
             const authentication = {
                 isAuthenticated: true,
                 accessToken: action.payload.accessToken,
-                userName:action.payload.accountDTO.name +" " + action.payload.accountDTO.lastName,
-                email:action.payload.accountDTO.email,
+                userName: action.payload.accountDTO.name + " " + action.payload.accountDTO.lastName,
+                email: action.payload.accountDTO.email,
                 token: action.payload.accessToken,
                 connections: action.payload.accountDTO.connections,
                 profileImage: BytesToFile(action.payload.accountDTO.profileImage, "image/png")
             }
             return {
                 ...state,
-                authentication : authentication
+                authentication: authentication
             }
         default:
             return state
