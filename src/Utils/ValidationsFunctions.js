@@ -27,7 +27,10 @@ export const validationFuncations = {
         }
     },
     genderValidation: (value) => {
-        value = value.toLowerCase()
+        if(value != null){
+            value = value.toLowerCase()
+        }
+            
         if (value == "male" || value == "female") {
             return [true, ""]
         } else {
