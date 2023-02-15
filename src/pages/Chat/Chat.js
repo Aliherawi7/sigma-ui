@@ -2,9 +2,11 @@ import React from 'react'
 import Button from '../../components/UI/button/Button'
 import { Icons } from '../../constants/UiConstant'
 import "./Chat.css"
+import useRedirect from '../../hooks/useRedirect'
 
 
 function Chat() {
+    useRedirect();
     return (
         <section className='chat fade_in'>
             <div className='contacts_list'>
