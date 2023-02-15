@@ -2,9 +2,12 @@ import React from 'react'
 import { ButtonTypes, Icons } from '../../constants/UiConstant'
 import Button from '../UI/button/Button'
 import "./NotificationArea.css"
+import { useSelector } from 'react-redux'
 
 
 function NotificationArea() {
+  const state = useSelector(state => state.authentication);
+  console.log(state);
   return (
     <section className='notification_area'>
       <section className='header'>
@@ -19,9 +22,9 @@ function NotificationArea() {
             <Button icon={Icons.notification} />
           </div>
           <div className='profile_account display_flex_align_center none_selectable'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
+            <img src={state.profileImage} className='profile_avatar_small' />
             <h3 className='name'>
-              Maria Johns
+              {state.userName}
             </h3>
           </div>
         </section>
