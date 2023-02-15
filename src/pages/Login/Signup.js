@@ -14,7 +14,7 @@ function Signup() {
     lastName: { value: "", type: "text", placeholder: "last name", isValid: false },
     email: { value: "", type: "email", placeholder: "email", isValid: false },
     dob: { value: "", type: "date", placeholder: "birthday", isValid: false },
-    gender: { value: "", type: "select", placeholder: "gender", isValid: false },
+    gender: { value: null, type: "select", placeholder: "gender", isValid: false },
     password: { value: "", type: "password", placeholder: "password", isValid: false },
     repeatPass: { value: "", type: "password", placeholder: "repeat password", isValid: false }
   });
@@ -68,20 +68,15 @@ function Signup() {
       invalids.forEach(item => {
         changeInputValue(item, inputs[item].value)
       })
-      console.log(invalids)
       return
     }
-    console.log(inputs)
 
 
   }
-
-
-
   console.log(inputs)
   return (
     <section className='signup fade_in'>
-      <form className='display_flex flex_direction_column align_items_center'>
+      <form className='display_flex  align_items_center'>
         <div className='input_profile_container position_relative '>
           <img src={profileImg.isOk ? profileImg.imgUrl : avatar} className='input_profile_img' alt='user_image' />
           <span className="upload_icon display_flex align_items_center justify_content_center">
@@ -89,41 +84,43 @@ function Signup() {
           </span>
           <input type={"file"} accept="image/*" className="input " onChange={(e) => setProfileImgInput(e)} />
         </div>
-        {Object.keys(inputs).map(name => {
-          if (inputs[name].type == "select") {
+        <div className='input_container isplay_flex flex_direction_column align_items_center'>
+          {Object.keys(inputs).map(name => {
+            if (inputs[name].type == "select") {
+              return (
+                <>
+                  <select
+                    className={`input select ${!inputs[name].isValid && inputs[name].isUsed ? "input_warning" : ""}`}
+                    value={inputs[name].value}
+                    onChange={(e) => changeInputValue(name, e.target.value)}>
+                    <option disabled selected >gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                  {inputs[name].isValid ? null : <span className="warning">{inputs[name].warning}</span>}
+                </>
+              )
+            }
             return (
               <>
-                <select
-                  className={`input select ${!inputs[name].isValid && inputs[name].isUsed ? "input_warning" : ""}`}
+                <input
+                  key={name}
+                  type={inputs[name].type != "date" ? inputs[name].type: "text"}
                   value={inputs[name].value}
-                  defaultValue={"gender"}
-                  onChange={(e) => changeInputValue(name, e.target.value)}>
-                  <option disabled>gender</option>
-                  <option className='input'>Male</option>
-                  <option>Female</option>
-                </select>
+                  name="name"
+                  className={`input ${!inputs[name].isValid && inputs[name].isUsed ? "input_warning" : ""}`}
+                  placeholder={inputs[name].placeholder}
+                  onFocus= {inputs[name].type == "date"? (e)=> (e.target.type = "date"): null}
+                  onBlur= {inputs[name].type == "date"? (e)=> (e.target.type = "text"): null}
+                  onChange={(e) => changeInputValue(name, e.target.value)} />
                 {inputs[name].isValid ? null : <span className="warning">{inputs[name].warning}</span>}
               </>
             )
-          }
-          return (
-            <>
-              <input
-                key={name}
-                type={inputs[name].type}
-                value={inputs[name].value}
-                name="name"
-                className={`input ${!inputs[name].isValid && inputs[name].isUsed ? "input_warning" : ""}`}
-                placeholder={inputs[name].placeholder}
-                onChange={(e) => changeInputValue(name, e.target.value)} />
-              {inputs[name].isValid ? null : <span className="warning">{inputs[name].warning}</span>}
-            </>
-          )
-        })}
-
+          })}
         <Button name={"Sign up"} click={sendInformationToServer} cursor="pointer" type={"general"} />
         <div className="help_buttons display_flex justify_content_space_between">
           <Button name={"Already have account?"} cursor="pointer" click={() => navigate("/login")} />
+        </div>
         </div>
       </form>
     </section>
