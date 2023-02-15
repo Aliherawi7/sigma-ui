@@ -80,17 +80,19 @@ function Signup() {
     })
     formData.append("img", profileImg.file)
     
-    fetch("http://localhost:9090/api/login",{
+    fetch("http://localhost:9090/api/accounts",{
       method:"POST",
       headers:{},
       body:formData
     }).then(res =>  {
-      if(res.ok){
         return res.json()
-      }
     }).then(data => {
       // set the data into store
-      console.log(data)
+      setCookie("token",data.accessToken);
+      setCookie("userName", data.accountDTO.name +" "+ data.accountDTO.lastName)
+      setCookie("email", data.accountDTO.email)
+      localStorage.setItem("profileImage", data.accountDTO.profileImage);
+      setCookie("connections", data.accountDTO.connections)
       dispatch({
         type:actions.ADD_USER_INFO,
         payload:data
