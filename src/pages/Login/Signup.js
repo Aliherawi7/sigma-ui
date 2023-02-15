@@ -4,10 +4,15 @@ import Button from '../../components/UI/button/Button'
 import { useNavigate } from 'react-router-dom'
 import { validationFuncations } from "../../Utils/ValidationsFunctions"
 import { avatar } from "../../constants/UiConstant"
+import { useDispatch } from 'react-redux'
+import actions from '../../store/Actions'
+
 
 
 function Signup() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
   const [profileImg, setProfileImg] = useState({ imgUrl: '', file: "", isOk: false });
   const [inputs, setInputs] = useState({
     name: { value: "", type: "text", placeholder: "name", isValid: false },
@@ -52,9 +57,7 @@ function Signup() {
 
   // handle input change of profile image
   const setProfileImgInput = (e) => {
-    console.log(e)
     const url = URL.createObjectURL(e.target.files[0])
-    console.log(url)
     setProfileImg({ imgUrl: url, file: e.target.files[0], isOk: true })
   }
 
@@ -66,14 +69,39 @@ function Signup() {
     // if there is any empty or invalid input then alert a warning to user
     if (invalids.length > 0) {
       invalids.forEach(item => {
-        changeInputValue(item, inputs[item].value)
+        changeInputValue(item+"", inputs[item].value)
       })
       return
     }
 
+    let formData = new FormData();
+    Object.keys(inputs).forEach(item => {
+      formData.append(item, inputs[item].value)
+    })
+    formData.append("img", profileImg.file)
+    
+    fetch("http://localhost:9090/api/login",{
+      method:"POST",
+      headers:{},
+      body:formData
+    }).then(res =>  {
+      if(res.ok){
+        return res.json()
+      }
+    }).then(data => {
+      // set the data into store
+      console.log(data)
+      dispatch({
+        type:actions.ADD_USER_INFO,
+        payload:data
+      })
+      navigate("/")
+      // and then redirect to the home page
+    }).catch(error =>{
+      console.log(error)
+    })
 
   }
-  console.log(inputs)
   return (
     <section className='signup fade_in'>
       <form className='display_flex  align_items_center'>
