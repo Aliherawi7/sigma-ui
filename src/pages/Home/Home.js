@@ -12,11 +12,11 @@ function Home() {
   
   return (
     <section className='home fade_in'>
-      <div className='greeting'>
-        <h3>Hi dear user</h3>
-      </div>
+      {/* <div className='greeting'>
+        <h3>Hi dear {state.userName} Welcome to Sigma</h3>
+      </div> */}
       <div className='whats_new box_shadow background_color'>
-        <img src='\images\ProfileImages\user3.jpg' className='profile_avatar' alt='user_avatar' />
+        <img src={state.profileImage} className='profile_avatar' alt='user_avatar' />
         <input type={"text"} className="input" placeholder="What's new, user?" />
         <Button name={"Post"} icon={Icons.post} type={ButtonTypes.general} />
       </div>
