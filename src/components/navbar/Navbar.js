@@ -20,8 +20,8 @@ function Navbar() {
         <li className={state == "/chat" ? "active" : ""} onClick={() => setstate(Paths.CHAT)}>
           <Link to={Paths.CHAT}><i className='bi bi-chat'></i> <span>Chats</span></Link>
         </li>
-        <li className={state == Paths.LOAD ? "active" : ""} onClick={() => setstate(Paths.LOAD)}>
-          <Link to={Paths.LOAD}><i className='bi bi-person'></i> <span>Profile</span></Link>
+        <li className={state == Paths.PROFILE ? "active" : ""} onClick={() => setstate(Paths.PROFILE)}>
+          <Link to={Paths.PROFILE}><i className='bi bi-person'></i> <span>Profile</span></Link>
         </li>
         <li className={state == Paths.SETTINGS ? "active" : ""} onClick={() => setstate(Paths.SETTINGS)}>
           <Link to={Paths.SETTINGS}>
