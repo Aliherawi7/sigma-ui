@@ -6,6 +6,8 @@ import { validationFuncations } from "../../Utils/ValidationsFunctions"
 import { avatar } from "../../constants/UiConstant"
 import { useDispatch } from 'react-redux'
 import actions from '../../store/Actions'
+import { setCookie } from '../../Utils/Cookie'
+
 
 
 
