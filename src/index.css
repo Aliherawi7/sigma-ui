@@ -31,7 +31,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -55,6 +55,10 @@ code {
 a {
   text-decoration: none;
   color: #000;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a:active,
@@ -204,6 +208,17 @@ img {
   bottom: -2px;
   border-radius: 50%;
   background-color: var(--light_green);
+}
+
+.profile_img_border {
+  object-fit: cover;
+  border-radius: 50%;
+  border-right-color: #f00;
+  border: 4px solid;
+  border-right-color: #e19130;
+  border-left-color: #4caf50;
+  border-bottom-color: #da892c;
+  border-top-color: #4caf50;
 }
 
 
