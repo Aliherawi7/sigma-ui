@@ -23,9 +23,9 @@ function NotificationArea() {
           </div>
           <div className='profile_account display_flex_align_center none_selectable'>
             <img src={state.profileImage} className='profile_avatar_small' />
-            <h3 className='name'>
+            {/* <h3 className='name'>
               {state.userName}
-            </h3>
+            </h3> */}
           </div>
         </section>
       </section>
