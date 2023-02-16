@@ -1,0 +1,65 @@
+
+.header_image{
+    height: 150px;
+    position: relative;
+}
+.header_image::after{
+    position: absolute;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* background: var(--headerbackground); */
+    background: linear-gradient(45deg, #ff00d4, #00ddff);
+    /* filter: blur(2px); */
+}
+
+.user_profile_info{
+    position: absolute;
+    bottom: -25px;
+    left: 20px;
+    z-index: 10;
+}
+
+.user_profile_info img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: contain;
+    
+}
+.user_profile_info .username{
+    font-size: 1rem;
+    margin-left: 1rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.profile_menu{
+    background: #00000052;
+}
+.profile_menu li{
+    padding : 10px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #7a7a7a;
+    font-weight: 500;
+}
+
+.profile_menu .active{
+    position: relative;
+    background: rgba(221, 221, 221, 0.24)!important;
+    color: #fff;
+}
+.profile_menu .active::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--main_color);
+}
