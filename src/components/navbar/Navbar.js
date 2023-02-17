@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className='navbar'>
       <section className='brand_name'>
-        <img src='\images\sigma_v1_logo.png' alt='sigma_app' className='brand_logo' />
+        <img src='\images\sigma_v2.1_logo.png' alt='sigma_app' className='brand_logo' />
       </section>
       <ul className='menu'>
         <li className={state == "/" ? "active" : ""}onClick={() => setstate(Paths.HOME)}>
