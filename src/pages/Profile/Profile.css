@@ -47,6 +47,7 @@
     cursor: pointer;
     color: #7a7a7a;
     font-weight: 500;
+    z-index: 20;
 }
 
 .profile_menu .active{
@@ -62,4 +63,8 @@
     right: 0;
     height: 2px;
     background-color: var(--main_color);
+}
+
+.profile .menu_body{
+    padding-top: 20px;
 }
