@@ -1,10 +1,49 @@
-# Getting Started with Create React App
+# Sigma
+<!-- creator: Ali Herawi -->
+<!-- github: https://github.com/Aliherawi7 -->
+<!-- Email: Aliherawi7@gmail.com -->
+<!-- Linked in : https://linkedin.com/in/ali-herawi -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+eshop-store developed and build with **React (v17.0.2)**, **react-redux(v8.0.5)**, **JavaScript** and **React Router v6**. For Styles and animations, is used **CSS**.
 
-## Available Scripts
+<!-- # Demo
 
-In the project directory, you can run:
+Visit: [Project eshop demo](https://eshop-demo.netlify.app/) -->
+
+
+![Home page](src/assets/UIDesign/home.png)
+![Chat page](src/assets/UIDesign/chat.png)
+
+
+# Features
+
+* Attractive UI
+* Redux
+* Responsive layout
+* React Hooks
+* React Router v6
+* Bootstrap icon
+
+
+# Pages
+
+* Home
+* Chat
+* Search
+* People
+* Profile
+* Login
+* Signup
+* Settings
+* 404 Error(not found)
+
+
+# Getting Started
+
+**1. Clone from Github**
+
+`git clone https://github.com/Aliherawi7/sigma-ui.git`
+
 
 ### `npm start`
 
