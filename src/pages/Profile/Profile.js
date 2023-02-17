@@ -1,8 +1,10 @@
 import React from 'react'
 import "./Profile.css"
 import { useSelector } from 'react-redux'
+import useRedirect from "../../hooks/useRedirect"
 
 function Profile() {
+    useRedirect()
     const state = useSelector(state => state.authentication)
     return (
         <div className='profile'>
