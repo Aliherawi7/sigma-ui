@@ -4,11 +4,11 @@
 <!-- Email: Aliherawi7@gmail.com -->
 <!-- Linked in : https://linkedin.com/in/ali-herawi -->
 
-eshop-store developed and build with **React (v17.0.2)**, **react-redux(v8.0.5)**, **JavaScript** and **React Router v6**. For Styles and animations, is used **CSS**.
+Sigma developed and built with **React (v17.0.2)**, **react-redux(v8.0.5)**, **JavaScript** and **React Router v6**. For Styles and animations, is used **CSS**.
 
 <!-- # Demo
 
-Visit: [Project eshop demo](https://eshop-demo.netlify.app/) -->
+Visit: [Project sigma demo](https://sigma.netlify.app/) -->
 
 
 ![Home page](src/assets/UIDesign/home.png)
