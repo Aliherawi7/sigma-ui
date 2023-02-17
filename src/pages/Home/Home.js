@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import "./Home.css"
 import Button from '../../components/UI/button/Button'
 import { Icons, ButtonTypes } from '../../constants/UiConstant'
@@ -9,7 +9,7 @@ import useRedirect from '../../hooks/useRedirect'
 function Home() {
   useRedirect();
   const state = useSelector(state => state.authentication);
-  
+
   return (
     <section className='home fade_in'>
       {/* <div className='greeting'>
@@ -33,12 +33,12 @@ function Home() {
           <span className='post_setting'><i className={Icons.threeDots}></i></span>
         </div>
         <div className='post_body'>
-          
+
           <div className='image_containter'>
-          <img src='\images\ProfileImages\user2.jpg' alt='user_avatar' />
-          <img src='\images\ProfileImages\user3.jpg' alt='user_avatar' />
+            <img src='\images\login_page.jpg' alt='user_avatar' />
+            <img src='\images\signup_page.jpg' alt='user_avatar' />
           </div>
-          
+
         </div>
       </div>
     </section>

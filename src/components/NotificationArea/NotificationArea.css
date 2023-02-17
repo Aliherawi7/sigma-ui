@@ -24,7 +24,7 @@
     padding-left: 10px;
 }
 .notification_area .search_bar input{
-    width: 50px;
+    width: 120px;
     transition: width .3s cubic-bezier(0.19, 1, 0.22, 1);
     border: 1px solid #dddddd21;
     border-radius: 8px;

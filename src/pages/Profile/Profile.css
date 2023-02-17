@@ -42,6 +42,7 @@
     background: #00000052;
 }
 .profile_menu li{
+    user-select: none;
     padding : 10px 10px;
     font-size: 12px;
     cursor: pointer;
@@ -54,7 +55,9 @@
     position: relative;
     background: rgba(221, 221, 221, 0.24)!important;
     color: #fff;
+    transition: all .3s cubic-bezier(0.4, 0, 1, 1);
 }
+
 .profile_menu .active::after{
     position: absolute;
     content: "";
