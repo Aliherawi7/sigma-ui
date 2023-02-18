@@ -1,4 +1,8 @@
-
+.home .home_header{
+    text-align: left;
+    font-size: 18px;
+    margin: 15px 0;
+}
 
 .whats_new{
     display: flex;

@@ -5,6 +5,8 @@ import { Icons, ButtonTypes } from '../../constants/UiConstant'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import useRedirect from '../../hooks/useRedirect'
+import Post from '../../components/Post/Post'
+import Stories from '../../components/Stories/Stories'
 
 function Home() {
   useRedirect();
@@ -12,35 +14,22 @@ function Home() {
 
   return (
     <section className='home fade_in'>
-      {/* <div className='greeting'>
-        <h3>Hi dear {state.userName} Welcome to Sigma</h3>
-      </div> */}
+      {/* stories */}
+      <h2 className='home_header'>Stories</h2>
+      <Stories />
+
+      <h2 className='home_header'>Feed</h2>
       <div className='whats_new box_shadow background_color'>
         <img src={state.profileImage} className='profile_avatar' alt='user_avatar' />
         <input type={"text"} className="input" placeholder="What's new, user?" />
         <Button name={"Post"} icon={Icons.post} type={ButtonTypes.general} />
       </div>
 
-      <div className='connection_post box_shadow background_color element_touch'>
-        <div className='post_header'>
-          <div className='account_info'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar' alt='user_avatar' />
-            <div className='account_name_date'>
-              <h4>user name</h4>
-              <p className='post_date'>2023-2-1</p>
-            </div>
-          </div>
-          <span className='post_setting'><i className={Icons.threeDots}></i></span>
-        </div>
-        <div className='post_body'>
-
-          <div className='image_containter'>
-            <img src='\images\login_page.jpg' alt='user_avatar' />
-            <img src='\images\signup_page.jpg' alt='user_avatar' />
-          </div>
-
-        </div>
-      </div>
+      <Post
+        userInfo={{ name: state?.userName, image: state?.profileImage }}
+        date={"2023-02-03"}
+        images={['/images/login_page.jpg', '/images/signup_page.jpg']}
+      />
     </section>
   )
 }
