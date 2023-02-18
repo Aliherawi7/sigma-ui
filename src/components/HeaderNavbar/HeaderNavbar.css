@@ -1,0 +1,21 @@
+.header_navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+
+.brand_logo{
+    width: 130px;
+    margin-left: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.search_bar{
+    margin-left: 40px;
+}
