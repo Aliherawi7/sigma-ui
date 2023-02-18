@@ -6,6 +6,7 @@ import { Suspense } from 'react';
 import Signup from './pages/Login/Signup';
 import { useSelector } from 'react-redux';
 import Wrapper from './components/HigherOrderComponent/Wrapper';
+import HeaderNavbar from './components/HeaderNavbar/HeaderNavbar';
 
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
@@ -22,6 +23,7 @@ function App() {
       <main className='layout'>
         <Router>
           <Suspense fallback={<Spinner />}>
+            {state.isAuthenticated ? <HeaderNavbar /> : null}
             {state.isAuthenticated ? <Navbar /> : null}
             {state.isAuthenticated ? <NotificationArea /> : null}
             <Wrapper>
