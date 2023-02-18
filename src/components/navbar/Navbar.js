@@ -2,16 +2,21 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Paths } from '../../constants/PathURL';
 import "./Navbar.css"
+import {useSelector} from "react-redux"
 
 function Navbar() {
   const [state, setstate] = useState(window.location.pathname);
+  const auth  = useSelector(state => state.authentication)
   return (
     <nav className='navbar'>
-      <section className='brand_name'>
-        <img src='\images\sigma_v2.1_logo.png' alt='sigma_app' className='brand_logo' />
-      </section>
+      <div className="profile_container display_flex_align_center flex_direction_column justify_content_center">
+        <div className='profile_account display_flex_align_center  justify_content_center none_selectable'>
+          <img src={auth.profileImage} className='profile_image_main' />
+        </div>
+        <h2 className='username'>{auth.userName}</h2>
+      </div>
       <ul className='menu'>
-        <li className={state == "/" ? "active" : ""}onClick={() => setstate(Paths.HOME)}>
+        <li className={state == "/" ? "active" : ""} onClick={() => setstate(Paths.HOME)}>
           <Link to={Paths.HOME}><i className='bi bi-house-door'></i> <span>Home</span></Link>
         </li>
         <li className={state == Paths.PEOPLE ? "active" : ""} onClick={() => setstate(Paths.PEOPLE)}>
@@ -25,7 +30,7 @@ function Navbar() {
         </li>
         <li className={state == Paths.SETTINGS ? "active" : ""} onClick={() => setstate(Paths.SETTINGS)}>
           <Link to={Paths.SETTINGS}>
-          <i className='bi bi-gear'></i> <span>Settings</span></Link>
+            <i className='bi bi-gear'></i> <span>Settings</span></Link>
         </li>
       </ul>
     </nav>
