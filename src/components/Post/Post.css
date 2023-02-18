@@ -43,3 +43,13 @@
     border-radius: 10px;
     max-width: 100%;
 }
+
+
+.post_reactions{
+    padding: 10px;
+    justify-content: space-between;
+}
+.post_reactions i {
+    margin-right: 10px;
+    cursor: pointer;
+}
