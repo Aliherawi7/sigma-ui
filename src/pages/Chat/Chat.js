@@ -8,7 +8,7 @@ import useRedirect from '../../hooks/useRedirect'
 function Chat() {
     useRedirect();
     return (
-        <section className='chat fade_in'>
+        <section className='chat height_100 fade_in '>
             <div className='contacts_list'>
                 <div className='search_bar'>
                     <i className={Icons.search}></i>
