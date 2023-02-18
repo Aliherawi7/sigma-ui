@@ -1,0 +1,23 @@
+
+.profile_picture .profile_img_container{
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--main_color);
+    border-radius: 50%;
+}
+.profile_picture .profile_avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.profile_picture .account_name_date{
+    text-align: left;
+    margin-left: 16px;
+}
+.profile_picture .account_name_date h4{
+    font-size: 16px;
+}
+.profile_picture .account_name_date p{
+    font-size: 10px;
+}
