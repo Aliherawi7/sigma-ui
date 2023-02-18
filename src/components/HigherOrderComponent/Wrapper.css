@@ -1,8 +1,9 @@
 .wrapper{
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 10px 15px;
+    padding: 0px 15px;
     padding-right: 10px;
     box-sizing: border-box;
+    background: rgb(255 195 234 / 9%);
 }
