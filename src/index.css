@@ -102,9 +102,19 @@ input:-internal-autofill-selected {
   color: #fff !important;
 }
 
+/* width and height */
+
+.width_100{
+  width: 100%;
+}
+
+.height_100{
+  height: 100%;
+}
+
 .input:focus {
   border: 1px solid var(--light_red) !important;
-  box-shadow: 0 0 0 0.25rem rgb(246 36 102 / 34%) !important;
+  box-shadow: 0 0 0 0.2rem rgb(246 36 102 / 34%) !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -179,16 +189,18 @@ img {
 }
 
 .search_bar input {
-  width: 50px;
-  transition: width .3s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 250px;
+  transition: width .3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow .8s cubic-bezier(0.075, 0.82, 0.165, 1);
   border: 1px solid #dddddd21;
-  border-radius: 8px;
+  border-radius: 28px;
   outline: none;
   padding-left: 30px;
+  height: 15px;
 }
 
 .search_bar input:focus {
-  width: 200px;
+  width: 300px;
+  transition: width .3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow .8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 /* badge  */
