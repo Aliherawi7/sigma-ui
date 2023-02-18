@@ -16,6 +16,6 @@
     -webkit-user-drag: none;
 }
 
-.search_bar{
+.header_navbar .search_bar{
     margin-left: 40px;
 }
