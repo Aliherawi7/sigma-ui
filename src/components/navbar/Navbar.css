@@ -3,17 +3,29 @@
     padding: 10px;
     background-color: transparent;
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     bottom: 0;
     border-right: 1px solid #363b5e45;
 }
-.brand_logo{
-    width: 150px;
-    user-select: none;
-    -webkit-user-drag: none;
+
+.navbar .profile_account{
+    margin-top: 20px;
+    width: 85px;
+    height: 85px;
+    border: 3px solid var(--main_color);
+    border-radius: 50%;
+}
+.navbar .profile_container .profile_image_main{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
 
+.navbar .profile_container .username{
+    font-size: 1rem;
+}
 
 
 .navbar .menu{
