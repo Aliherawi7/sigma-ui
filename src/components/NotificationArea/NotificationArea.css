@@ -1,49 +1,20 @@
 .notification_area {
     width: 240px;
-    padding: 10px;
+    padding: 0 10px;
     background-color: transparent;
     position: fixed;
-    top: 0;
+    top: 50px;
     right: 0;
     bottom: 0;
     border-left: 1px solid #363b5e45;
 }
 
-.notification_area .header{
-    display: flex;
-    justify-content: space-between;
-}
+.box_style{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(221, 221, 221, 0.09);
+    margin-bottom: 10px;
 
-.notification_area .search_bar{
-    display: flex;
-    align-items: center;
-}
-
-.notification_area .search_bar i{
-    position: absolute;
-    padding-left: 10px;
-}
-.notification_area .search_bar input{
-    width: 120px;
-    transition: width .3s cubic-bezier(0.19, 1, 0.22, 1);
-    border: 1px solid #dddddd21;
-    border-radius: 8px;
-    outline: none;
-    padding-left: 30px;
-}
-.notification_area .search_bar input:focus{
-    width: 200px;
-}
-
-
-.notification_area .profile_account h3{
-    padding-left: 5px;
-    font-size: 12px;
-    min-width: max-content;
-}
-
-.notification_area .notifications i{
-    font-size: 20px;
 }
 
 .requests h2{
@@ -51,6 +22,8 @@
     margin-left: 10px;
     line-height: 16px;
 }
+
+
 
 .request{
     align-items: flex-start;
@@ -76,10 +49,6 @@
 }
 
 
-.section_splitor{
-    border-top: 1px solid #dddddd1f;
-    margin-top: 40px;
-}
 .section_splitor .header_container{
     justify-content: space-between;
 }
