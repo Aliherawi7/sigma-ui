@@ -7,7 +7,7 @@ function Timeline() {
     const state = useSelector(state => state.authentication)
     return (
         <div className='profile_timeline'>
-            this the timeline component
+            All Post up to now
             <Post
                 userInfo={{ name: state?.userName, image: state?.profileImage }}
                 date={"2023-02-03"}
