@@ -1,0 +1,15 @@
+
+.stories{
+    margin-bottom: 20px;
+}
+
+.story{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--main_color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
