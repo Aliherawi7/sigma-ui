@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 import useRedirect from '../../hooks/useRedirect'
 import Post from '../../components/Post/Post'
 import Stories from '../../components/Stories/Stories'
+import ProfilePicture from '../../components/UI/ProfilePicture/ProfilePicture'
+
 
 function Home() {
   useRedirect();
@@ -20,7 +22,7 @@ function Home() {
 
       <h2 className='home_header'>Feed</h2>
       <div className='whats_new box_shadow background_color'>
-        <img src={state.profileImage} className='profile_avatar' alt='user_avatar' />
+        <ProfilePicture userInfo={{image: state?.profileImage }}/>
         <input type={"text"} className="input" placeholder="What's new, user?" />
         <Button name={"Post"} icon={Icons.post} type={ButtonTypes.general} />
       </div>
