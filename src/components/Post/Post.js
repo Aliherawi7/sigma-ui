@@ -1,19 +1,14 @@
 import React from 'react'
 import "./Post.css"
 import { Icons } from '../../constants/UiConstant'
+import ProfilePicture from '../UI/ProfilePicture/ProfilePicture'
 
 function Post({userInfo, date, images=[], reactions}) {
     return (
         <div className='post'>
             <div className='connection_post box_shadow background_color '>
                 <div className='post_header'>
-                    <div className='account_info'>
-                        <img src={userInfo?.image} className='profile_avatar' alt={userInfo?.name} />
-                        <div className='account_name_date'>
-                            <h4>{userInfo?.name}</h4>
-                            <p className='post_date'>{date}</p>
-                        </div>
-                    </div>
+                    <ProfilePicture userInfo={userInfo} date={date}/>
                     <span className='post_setting'><i className={Icons.threeDots}></i></span>
                 </div>
                 <div className='post_body'>
