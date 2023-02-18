@@ -78,7 +78,7 @@ function Login() {
   return (
     <section className='login fade_in display_flex flex_direction_column'>
       <div className='brand_name'>
-        <img src='\images\sigma_v1_logo.png' alt='sigma_app' className='brand_logo' />
+        <img src='\images\sigma_v2.1_logo.png' alt='sigma_app' className='brand_logo' />
       </div>
       <form className='display_flex flex_direction_column'>
         {Object.keys(inputs).map(name => {
