@@ -2,10 +2,10 @@ import React from 'react'
 import "./Post.css"
 import { Icons } from '../../constants/UiConstant'
 
-function Post({userInfo, date, images=[]}) {
+function Post({userInfo, date, images=[], reactions}) {
     return (
         <div className='post'>
-            <div className='connection_post box_shadow background_color element_touch'>
+            <div className='connection_post box_shadow background_color '>
                 <div className='post_header'>
                     <div className='account_info'>
                         <img src={userInfo?.image} className='profile_avatar' alt={userInfo?.name} />
@@ -23,10 +23,10 @@ function Post({userInfo, date, images=[]}) {
                         })}
                     </div>
                 </div>
-                <div className='post_reactions'>
-                    <div className='likes'><i className='bi bi-heart'></i></div>
-                    <div className='likes'><i className='bi bi-chat'></i></div>
-                    <div className='likes'><i className='bi bi-share'></i></div>
+                <div className='post_reactions display_flex '>
+                    <div className='likes'><i className='bi bi-heart'></i>235423</div>
+                    <div className='likes'><i className='bi bi-chat'></i>45234</div>
+                    <div className='likes'><i className='bi bi-share'></i>12</div>
                 </div>
             </div>
         </div>
