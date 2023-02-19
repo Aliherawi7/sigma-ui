@@ -17,6 +17,7 @@
 }
 .profile_picture .account_name_date h4{
     font-size: 16px;
+    text-transform: capitalize;
 }
 .profile_picture .account_name_date p{
     font-size: 10px;
