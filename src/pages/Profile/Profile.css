@@ -12,19 +12,22 @@
     bottom: 0;
     left: 0;
     right: 0;
-    /* background: var(--headerbackground); */
-    background: linear-gradient(45deg, #ff00d4, #00ddff);
-    /* filter: blur(2px); */
+    background: var(--background);
 }
 
-.user_profile_info{
+.profile .profile_header .profile_picture{
     position: absolute;
     bottom: -25px;
     left: 20px;
     z-index: 10;
 }
 
-.user_profile_info img{
+.profile .profile_header .profile_picture .profile_img_container{
+    width: 100px;
+    height: 100px;
+}
+
+.profile .profile_header .profile_img_container img{
     width: 100px;
     height: 100px;
     border-radius: 50%;

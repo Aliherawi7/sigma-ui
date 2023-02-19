@@ -6,6 +6,7 @@ import About from "./About/About"
 import Timeline from "./Timeline/Timeline"
 import Friends from "./Friends/Friends"
 import Photos from "./photos/Photos"
+import ProfilePicture from '../../components/UI/ProfilePicture/ProfilePicture'
 
 const components = {
     About:{name:'About', component:About},
@@ -18,16 +19,18 @@ function Profile() {
     const [state, setstate] = useState(components.Timeline);
     useRedirect()
     const store = useSelector(state => state.authentication)
-    console.log(state)
+    // create a random background color for profile header
+    const randColor = {
+        background: `linear-gradient(45deg, hsl(${(Math.random()*255).toFixed(0)}, 20%, 50%), hsl(${(Math.random()*255).toFixed(0)}, 30%, 50%))`
+    }
+    console.log(randColor)
     return (
         <div className='profile'>
             {/* the navbar of the profile page */}
             <div className='profile_header'>
-                <div className='header_image' style={{ "--headerbackground": `url(${store.profileImage})` }}>
-                    <div className='user_profile_info display_flex align_items_center'>
-                        <img src={store.profileImage} className="profile_img_border" />
-                        <h2 className='username'>{store.userName}</h2>
-                    </div>
+                <div className='header_image' style={{"--background":randColor.background }}>
+
+                    <ProfilePicture userInfo={{name:store.userName, image:store.profileImage}} />
                 </div>
                 <ul className='profile_menu display_flex justify_content_center'>
                     <li className={state.name == components.Timeline.name? 'active':''} onClick={() => setstate(components.Timeline)}>Timeline</li>
