@@ -12,16 +12,16 @@ function HeaderNavbar() {
                 <div className='brand_name'>
                     <img src='\images\sigma_v2.1_logo.png' alt='sigma_app' className='brand_logo' />
                 </div>
+
+            </section>
+
+            <section className='profile_info display_flex_align_center'>
                 <div className='search_bar'>
                     <i className={Icons.search}></i>
                     <form>
                         <input type="text" className='search_box input' placeholder='search' />
                     </form>
                 </div>
-            </section>
-
-            <section className='profile_info display_flex_align_center'>
-
                 <div className='notifications'>
                     <Button icon={Icons.notification} />
                 </div>

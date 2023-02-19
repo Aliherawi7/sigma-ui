@@ -3,6 +3,7 @@ import { ButtonTypes, Icons } from '../../constants/UiConstant'
 import Button from '../UI/button/Button'
 import "./NotificationArea.css"
 import { useSelector } from 'react-redux'
+import ProfilePicture from '../UI/ProfilePicture/ProfilePicture'
 
 
 function NotificationArea() {
@@ -35,24 +36,8 @@ function NotificationArea() {
           <span className='total_budge'>54</span>
         </div>
         <div className='contacts_container'>
-          <div className='profile_account display_flex_align_center'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-            <h3 className='name'>
-              Maria Johns
-            </h3>
-          </div>
-          <div className='profile_account display_flex_align_center'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-            <h3 className='name'>
-              Maria Johns
-            </h3>
-          </div>
-          <div className='profile_account display_flex_align_center'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-            <h3 className='name'>
-              Maria Johns
-            </h3>
-          </div>
+          {<ProfilePicture userInfo={{name:"Maria Johns", image:'/images/ProfileImages/user3.jpg' }} /> }
+          {<ProfilePicture userInfo={{name:"Alex Johns", image:'/images/ProfileImages/user1.jpg' }} /> }
         </div>
 
       </section>

@@ -64,14 +64,14 @@ ul {
 a:active,
 button:active,
 .click_effect:active {
-  transform: scale(0.95);
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: scale(0.98);
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   user-select: none;
 }
 
 .element_touch:active {
   transform: scale(0.99);
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   user-select: none;
 }
 
@@ -121,7 +121,8 @@ input:-internal-autofill-selected {
 .profile_avatar,
 .profile_avatar_small {
   width: 50px;
-  border-radius: 15%;
+  height: 50px;
+  border-radius: 50%;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
@@ -129,6 +130,7 @@ input:-internal-autofill-selected {
 
 .profile_avatar_small {
   width: 30px;
+  height: 30px;
 }
 
 img {
