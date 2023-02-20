@@ -8,7 +8,7 @@ import Friends from "./Friends/Friends"
 import Photos from "./photos/Photos"
 import ProfilePicture from '../../components/UI/ProfilePicture/ProfilePicture'
 const randColor = {
-    background: `linear-gradient(45deg, hsl(${(Math.random()*255).toFixed(0)}, 20%, 50%), hsl(${(Math.random()*255).toFixed(0)}, 30%, 50%))`
+    background: `linear-gradient(45deg, hsl(${(Math.random()*255).toFixed(0)}, 60%, 50%), hsl(${(Math.random()*255).toFixed(0)}, 30%, 50%))`
 }
 const components = {
     About:{name:'About', component:About},
