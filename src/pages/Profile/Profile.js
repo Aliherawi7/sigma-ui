@@ -29,7 +29,6 @@ function Profile() {
             {/* the navbar of the profile page */}
             <div className='profile_header'>
                 <div className='header_image' style={{"--background":randColor.background }}>
-
                     <ProfilePicture userInfo={{name:store.userName, image:store.profileImage}} size={"large"} />
                 </div>
                 <ul className='profile_menu display_flex justify_content_center'>
