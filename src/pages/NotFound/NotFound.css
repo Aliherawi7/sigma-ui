@@ -1,0 +1,10 @@
+.not_found h2{
+    font-size: 7rem;
+    font-weight: 900;
+}
+
+.not_found .title{
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
