@@ -12,6 +12,7 @@ export const Icons = {
     tick:"bi bi-check-lg",
     x: "bi bi-x",
     send: "bi bi-send",
+    plus:"bi bi-plus-lg",
     emojis:{
         smile: "bi bi-emoji-smile",
     }
