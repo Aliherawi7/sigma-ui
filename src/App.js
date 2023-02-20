@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import Wrapper from './components/HigherOrderComponent/Wrapper';
 import HeaderNavbar from './components/HeaderNavbar/HeaderNavbar';
 
-
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
 const NotificationArea = React.lazy(() => import('./components/NotificationArea/NotificationArea'));
@@ -16,6 +15,7 @@ const Chat = React.lazy(() => import('./pages/Chat/Chat'));
 const Login = React.lazy(() => import("./pages/Login/Login"));
 const Profile = React.lazy(() => import("./pages/Profile/Profile"));
 const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'));
+const People = React.lazy(() => import('./pages/People/People'));
 
 function App() {
   const state = useSelector(state => state.authentication)
@@ -31,6 +31,7 @@ function App() {
             <Wrapper>
               <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path="/people" element= {<People />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='load' element={<Spinner />} />
                 <Route path='/profile' element={<Profile />} />
