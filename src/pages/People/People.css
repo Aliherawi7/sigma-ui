@@ -1,0 +1,16 @@
+.people .header {
+    background-color: #29171a;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.people .title {
+    font-size: 1rem;
+}
+
+.people .search_container input,
+.people .search_container button {
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
