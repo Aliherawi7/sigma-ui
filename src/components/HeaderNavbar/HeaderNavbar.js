@@ -9,7 +9,7 @@ function HeaderNavbar() {
     return (
         <nav className='header_navbar display_flex align_items_center'>
             <section className='brand_name display_flex'>
-                <div className='brand_name'>
+                <div className='brand_name display_flex align_items_center'>
                     <img src='\images\sigma_v2.1_logo.png' alt='sigma_app' className='brand_logo' />
                 </div>
 
