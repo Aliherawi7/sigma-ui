@@ -3,20 +3,30 @@ import "./ProfilePicture.css"
 
 function ProfilePicture({ userInfo, date, size = "mid" }) {
     let widthAndHeight = {};
+    let fontSize = {}
     if(size === "large"){
         widthAndHeight = {
             width:"100px",
             height: "100px"
+        }
+        fontSize = {
+            fontSize:"1rem"
         }
     }else if(size === "mid"){
         widthAndHeight = {
             width:"40px",
             height: "40px"
         }
+        fontSize = {
+            fontSize:"0.8rem"
+        }
     }else if(size === "small"){
         widthAndHeight = {
             width:"30px",
             height: "30px"
+        }
+        fontSize = {
+            fontSize:".8rem"
         }
     }
     return (
@@ -27,7 +37,7 @@ function ProfilePicture({ userInfo, date, size = "mid" }) {
             {
                 userInfo.name ?
                     <div className='account_name_date'>
-                        <h4>{userInfo?.name}</h4>
+                        <h4 style={fontSize}>{userInfo?.name}</h4>
                         <p className='post_date'>{date}</p>
                     </div>
                     : null
