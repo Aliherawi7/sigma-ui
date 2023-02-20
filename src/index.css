@@ -64,7 +64,7 @@ ul {
 a:active,
 button:active,
 .click_effect:active {
-  transform: scale(0.98);
+  transform: scale(0.95);
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   user-select: none;
 }
@@ -188,6 +188,7 @@ img {
 .search_bar i {
   position: absolute;
   padding-left: 10px;
+  margin-top: 2px;
 }
 
 .search_bar input {
