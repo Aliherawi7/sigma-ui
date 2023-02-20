@@ -4,6 +4,24 @@
     border-radius: 10px;
 }
 
+.card_header{
+    height: 50px;
+    position: relative;
+}
+.card_header::after{
+    position: absolute;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--background);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .people .title {
     font-size: 1rem;
 }
@@ -13,4 +31,44 @@
     padding: 4px;
     border-radius: 10px;
     border: 1px solid #ddd;
+}
+
+.people .people_card_container{
+    margin-top: 10px;
+    flex-flow: wrap;
+}
+
+.people .people_card{
+    width: 150px;
+    height: 180px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #3e34de92;
+    background-color: rgba(221, 221, 221, 0.09);
+    flex-shrink: 0;
+}
+
+.people .people_card .profile_picture{
+    flex-direction: column;
+    position: absolute;
+    top: -20px;
+    left: 45px;
+}
+.people .people_card .account_name_date{
+    margin-left: 0;
+}
+.people .connections_posts{
+    padding-top: 50px;
+    margin-bottom: 10px;
+}
+.people .connections_posts .container{
+    margin: 0 10px;
+}
+
+.people .connections_posts span{
+    font-size: 10px;
+}
+.people .connection_buttons button{
+    padding: 2px 5px;
 }
