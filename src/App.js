@@ -8,12 +8,14 @@ import { useSelector } from 'react-redux';
 import Wrapper from './components/HigherOrderComponent/Wrapper';
 import HeaderNavbar from './components/HeaderNavbar/HeaderNavbar';
 
+
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Navbar = React.lazy(() => import('./components/navbar/Navbar'));
 const NotificationArea = React.lazy(() => import('./components/NotificationArea/NotificationArea'));
 const Chat = React.lazy(() => import('./pages/Chat/Chat'));
 const Login = React.lazy(() => import("./pages/Login/Login"));
 const Profile = React.lazy(() => import("./pages/Profile/Profile"));
+const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   const state = useSelector(state => state.authentication)
@@ -34,7 +36,7 @@ function App() {
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
-                <Route path='*' element={<h2>Not Found</h2>} />
+                <Route path='*' element={<NotFound />} />
               </Routes>
             </Wrapper>
           </Suspense>
