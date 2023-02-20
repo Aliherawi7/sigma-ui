@@ -56,6 +56,19 @@ function Login() {
     }).then(res => {
         return res.json()
     }).then(data => {
+      if(data.statusCode == 400){
+        const copyState = {...inputs};
+        if(data.error_message.includes('email')){
+          copyState.email.warning = data.error_message;
+          copyState.email.isValid = false
+        }else{
+          copyState.password.warning = data.error_message;
+          copyState.password.isValid = false
+        }
+        console.log(copyState)
+        setInputs(copyState);
+        return
+      }
       // set the data into store
       console.log(data)
       setCookie("token",data.accessToken);
