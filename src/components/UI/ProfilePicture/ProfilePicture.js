@@ -4,29 +4,29 @@ import "./ProfilePicture.css"
 function ProfilePicture({ userInfo, date, size = "mid" }) {
     let widthAndHeight = {};
     let fontSize = {}
-    if(size === "large"){
+    if (size === "large") {
         widthAndHeight = {
-            width:"100px",
+            width: "100px",
             height: "100px"
         }
         fontSize = {
-            fontSize:"1rem"
+            fontSize: "1rem"
         }
-    }else if(size === "mid"){
+    } else if (size === "mid") {
         widthAndHeight = {
-            width:"40px",
+            width: "40px",
             height: "40px"
         }
         fontSize = {
-            fontSize:"0.8rem"
+            fontSize: "0.8rem"
         }
-    }else if(size === "small"){
+    } else if (size === "small") {
         widthAndHeight = {
-            width:"30px",
+            width: "30px",
             height: "30px"
         }
         fontSize = {
-            fontSize:".8rem"
+            fontSize: "0.8rem"
         }
     }
     return (
