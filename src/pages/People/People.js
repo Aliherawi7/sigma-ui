@@ -1,37 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/UI/button/Button'
-import ProfilePicture from '../../components/UI/ProfilePicture/ProfilePicture'
+import { APIEndpoints, Paths } from '../../constants/PathURL'
 import { ButtonTypes, Icons } from '../../constants/UiConstant'
+import useRedirect from '../../hooks/useRedirect'
+import actions from '../../store/Actions'
+import { BytesToFile } from '../../Utils/BlobToFile'
 import "./People.css"
 
 const randColor = {
     background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
 }
 function People() {
-    const p = { name: "Ali herawi", image: '/images/ProfileImages/user3.jpg' };
-    const people = [{ p }, { p }, { p }, { p }];
+    const navigate = useNavigate();
+    useRedirect();
+    const auth = useSelector(state => state.authentication)
+    const [state, setstate] = useState([])
+    useEffect(() => {
+        fetch(APIEndpoints.PEOPLE, {
+            method: "GET",
+            headers: { "Authorization": auth.token }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setstate(data)
+                console.log(data)
+            })
+
+    }, [])
+
+    const goToProfilePage = (id)=>{
+        navigate(Paths.PROFILE+"/id="+id)
+    }
+
     return (
         <div className='people'>
             <div className='header display_flex align_items_center justify_content_space_between'>
                 <h2 className='title'>People you may know</h2>
-                <div className='search_bar'>
+                <div className='search_bar position_relative'>
                     <i className={Icons.search}></i>
                     <form>
                         <input type="text" className='search_box input' placeholder='Search people' />
                     </form>
                 </div>
             </div>
-            <div className='people_card_container display_flex position_relative'>
-                {people.map(item => {
+            <div className='people_card_container display_flex justify_content_center position_relative'>
+                {state.map(item => {
+                    const randColor = {
+                        background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
+                    }
                     return (
                         <div className='people_card box_shadow'>
                             <div className='card_header' style={{ "--background": randColor.background }}>
                             </div>
+                            <div 
+                            onClick={() => goToProfilePage(1)}
+                            className='profile_img_container display_flex align_items_center justify_content_center'>
+                                <img src={BytesToFile(item?.profileImage)} className='profile_avatar' alt={item?.name}  />
+                            </div>
                             <div className='profile_info position_relative'>
-                                {<ProfilePicture userInfo={{ name: "Ali herawi", image: '/images/ProfileImages/user3.jpg' }} />}
+                                <h5 className='title' onClick={() => goToProfilePage(1)}>{item.name+" "+item.lastName}</h5>
                                 <div className='connections_posts display_flex justify_content_center'>
                                     <div className='container display_flex flex_direction_column'>
-                                        <span><strong>1.4k</strong></span>
+                                        <span><strong>{item.connections}</strong></span>
                                         <span>Friends</span>
                                     </div>
                                     <div className='container display_flex flex_direction_column'>
