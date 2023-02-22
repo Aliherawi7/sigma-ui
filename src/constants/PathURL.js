@@ -6,3 +6,8 @@ export const Paths = {
     SETTINGS : '/settings',
     LOAD: 'load'
 }
+
+export const APIEndpoints = {
+    
+    PEOPLE: "http://localhost:9090/api/accounts/all"
+}
