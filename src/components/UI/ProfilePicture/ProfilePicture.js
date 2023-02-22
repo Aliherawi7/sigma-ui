@@ -14,16 +14,16 @@ function ProfilePicture({ userInfo, date, size = "mid" }) {
         }
     } else if (size === "mid") {
         widthAndHeight = {
-            width: "40px",
-            height: "40px"
+            width: "50px",
+            height: "50px"
         }
         fontSize = {
             fontSize: "0.8rem"
         }
     } else if (size === "small") {
         widthAndHeight = {
-            width: "30px",
-            height: "30px"
+            width: "40px",
+            height: "40px"
         }
         fontSize = {
             fontSize: "0.8rem"
