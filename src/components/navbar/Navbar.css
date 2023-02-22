@@ -12,14 +12,13 @@
     margin-top: 20px;
     width: 85px;
     height: 85px;
-    border: 3px solid var(--main_color);
+    border: 2px solid var(--main_color);
     border-radius: 50%;
 }
 .navbar .profile_container .profile_image_main{
     width: 85px;
     height: 85px;
     border-radius: 50%;
-    border: 2px solid #fff;
 }
 
 .navbar .profile_container .username{
