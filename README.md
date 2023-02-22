@@ -10,9 +10,14 @@ Sigma developed and built with **React (v17.0.2)**, **react-redux(v8.0.5)**, **J
 
 Visit: [Project sigma demo](https://sigma.netlify.app/) -->
 
-
+## Home page
 ![Home page](src/assets/UIDesign/home.png)
+## Chat page
 ![Chat page](src/assets/UIDesign/chat.png)
+## Profile page
+![profile page](src/assets/UIDesign/profile.png)
+## People page
+![People page](src/assets/UIDesign/people.png)
 
 
 # Features

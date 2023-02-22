@@ -6,6 +6,14 @@ export function setCookie(name, value, daysToLive = 1) {
     document.cookie = cookie;
 }
 
+export function removeAllCookies (){
+    document.cookie.split("; ").forEach(cookie => {
+        const theEqualIndex = cookie.indexOf("=");
+        const name = theEqualIndex > -1 ? cookie.substring(0, theEqualIndex) : cookie;
+        console.log(name)
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+    })
+}
 
 // Return the document's cookies as a Map object.
 // Assume that cookie values are encoded with encodeURIComponent().

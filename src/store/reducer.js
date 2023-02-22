@@ -1,6 +1,7 @@
 import actions from "./Actions";
 import { BytesToFile } from "../Utils/BlobToFile";
 import { getCookies } from "../Utils/Cookie";
+import { act } from "react-dom/test-utils";
 function getAuthInfoFromCookie() {
     let data = getCookies()
     if (data.size > 0) {
@@ -49,6 +50,11 @@ const reducer = (state = initailState, action) => {
                 ...state,
                 authentication: authentication
             }
+            case actions.LOGOUT:
+                return {
+                    ...state,
+                    authentication:action.payload
+                }
         default:
             return state
     }

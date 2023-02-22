@@ -33,6 +33,7 @@ function Navbar() {
           <Link to={Paths.SETTINGS}>
             <i className='bi bi-gear'></i> <span>Settings</span></Link>
         </li>
+        
       </ul>
     </nav>
   )

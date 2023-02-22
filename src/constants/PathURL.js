@@ -1,4 +1,5 @@
 export const Paths = {
+    LOGIN:"/login",
     HOME : '/',
     CHAT : '/chat',
     PEOPLE : '/people',
