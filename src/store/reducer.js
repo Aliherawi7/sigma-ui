@@ -16,6 +16,7 @@ function getAuthInfoFromCookie() {
 
 }
 const initailState = {
+    currentPathLocaion: window.location.pathname,
     authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie(): {
         isAuthenticated: false,
         accessToken: "",
@@ -29,6 +30,11 @@ const initailState = {
 
 const reducer = (state = initailState, action) => {
     switch (action.type) {
+        case actions.ADD_CRURRENT_URL:
+            return{
+                ...state,
+                currentPathLocaion:action.payload
+            }
         case actions.ADD_USER_INFO:
             const authentication = {
                 isAuthenticated: true,
