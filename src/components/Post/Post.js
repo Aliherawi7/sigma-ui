@@ -14,7 +14,7 @@ function Post({userInfo, date, images=[], reactions}) {
                 <div className='post_body'>
                     <div className='image_containter'>
                         {images.map(item => {
-                            return <img src={item} alt={userInfo.name} />
+                            return <img src={item} alt={userInfo.name} key={Math.random()} />
                         })}
                     </div>
                 </div>
