@@ -1,7 +1,7 @@
 export function setCookie(name, value, daysToLive = 1) {
     let cookie = `${name}=${encodeURIComponent(value)}`;
     if (daysToLive !== null) {
-        cookie += `; max-age=${daysToLive * 60 * 60 * 24}`;
+        cookie += `; max-age=${daysToLive * 60 * 60 * 24 * 5}`;
     }
     document.cookie = cookie;
 }
