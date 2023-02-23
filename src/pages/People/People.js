@@ -18,20 +18,21 @@ function People() {
     const auth = useSelector(state => state.authentication)
     const [state, setstate] = useState([])
     useEffect(() => {
+        
         fetch(APIEndpoints.PEOPLE, {
             method: "GET",
-            headers: { "Authorization": auth.token }
+            headers: { "authorization": auth.token }
         })
             .then(res => res.json())
             .then(data => {
                 setstate(data)
                 console.log(data)
             })
-
+        
     }, [])
 
-    const goToProfilePage = (id)=>{
-        navigate(Paths.PROFILE+"/id="+id)
+    const goToProfilePage = (id) => {
+        navigate(Paths.PROFILE + "/" + id)
     }
 
     return (
@@ -51,16 +52,16 @@ function People() {
                         background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
                     }
                     return (
-                        <div className='people_card box_shadow'>
+                        <div className='people_card box_shadow' key={item.userName}>
                             <div className='card_header' style={{ "--background": randColor.background }}>
                             </div>
-                            <div 
-                            onClick={() => goToProfilePage(1)}
-                            className='profile_img_container display_flex align_items_center justify_content_center'>
-                                <img src={BytesToFile(item?.profileImage)} className='profile_avatar' alt={item?.name}  />
+                            <div
+                                onClick={() => goToProfilePage(item.userName)}
+                                className='profile_img_container display_flex align_items_center justify_content_center'>
+                                <img src={BytesToFile(item?.profileImage)} className='profile_avatar' alt={item?.name} />
                             </div>
                             <div className='profile_info position_relative'>
-                                <h5 className='title' onClick={() => goToProfilePage(1)}>{item.name+" "+item.lastName}</h5>
+                                <h5 className='title' onClick={() => goToProfilePage(item.userName)}>{item.name + " " + item.lastName}</h5>
                                 <div className='connections_posts display_flex justify_content_center'>
                                     <div className='container display_flex flex_direction_column'>
                                         <span><strong>{item.connections}</strong></span>
