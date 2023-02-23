@@ -58,11 +58,11 @@ function Login() {
     }).then(data => {
       if(data.statusCode == 400){
         const copyState = {...inputs};
-        if(data.error_message.includes('email')){
-          copyState.email.warning = data.error_message;
+        if(data.errorMessage.includes('email')){
+          copyState.email.warning = data.errorMessage;
           copyState.email.isValid = false
         }else{
-          copyState.password.warning = data.error_message;
+          copyState.password.warning = data.errorMessage;
           copyState.password.isValid = false
         }
         console.log(copyState)
