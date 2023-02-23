@@ -9,6 +9,6 @@ export const Paths = {
 }
 
 export const APIEndpoints = {
-    
-    PEOPLE: "http://localhost:9090/api/accounts/all"
+    PEOPLE: "http://localhost:9090/api/accounts/all",
+    ONE_PERSON:"http://localhost:9090/api/accounts/userName/"
 }
