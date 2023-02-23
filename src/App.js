@@ -34,7 +34,7 @@ function App() {
                 <Route path="/people" element= {<People />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='load' element={<Spinner />} />
-                <Route path='/profile' element={<Profile />} />
+                <Route path='/profile/:userName' element={<Profile />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
                 <Route path='*' element={<NotFound />} />
