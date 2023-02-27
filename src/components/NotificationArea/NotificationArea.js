@@ -1,43 +1,99 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ButtonTypes, Icons } from '../../constants/UiConstant'
 import Button from '../UI/button/Button'
 import "./NotificationArea.css"
 import { useSelector } from 'react-redux'
 import ProfilePicture from '../UI/ProfilePicture/ProfilePicture'
+import { BytesToFile } from '../../Utils/BlobToFile'
+import { APIEndpoints, Paths } from '../../constants/PathURL'
+import { useNavigate } from 'react-router-dom'
 
 
 function NotificationArea() {
-  const state = useSelector(state => state.authentication);
-  console.log(state);
+  const navigate = useNavigate();
+  const auth = useSelector(state => state.authentication);
+  const [friendRequests, setFriendReqeust] = useState([]);
+  const [friends, setFriends] = useState([]);
+  useEffect(() => {
+    fetch(APIEndpoints.ALL_Received_Friend_Reqeuests, {
+      method: "GET",
+      headers: { "authorization": auth.token }
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setFriendReqeust(data)
+      });
+
+    fetch(APIEndpoints.ALL_Friends(auth.userName), {
+      method: "GET",
+      headers: { "authorization": auth.token }
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setFriends(data)
+      });
+
+  }, [])
+
+  const acceptRequest = (requestSenderUserName) => {
+    fetch(APIEndpoints.ACCEPT_FRIEND_REQUEST, {
+      method: 'POST',
+      headers: {
+        "authorization": auth.token,
+        "content-type": 'application/json'
+      },
+      body: JSON.stringify({
+        "requestReceiverUserName":auth.userName,
+        "requestSenderUserName":requestSenderUserName
+      })
+    })
+    .then(res => {
+      if(res.ok){
+        setFriendReqeust(friendRequests.filter(item => item.userName != requestSenderUserName))
+      }else{
+        console.log(res)
+      }
+    });
+  }
+
+  console.log(friendRequests)
   return (
     <section className='notification_area'>
-      
-      <section className='requests box_style section_splitor'>
+
+      {friendRequests.length > 0 ? <section className='requests box_style section_splitor'>
         <div className='header_container display_flex_align_center'>
           <h3>Requests</h3>
-          <span className='total_budge'>5</span>
+          <span className='total_budge'>{friendRequests.length}</span>
         </div>
-        <div className='contacts_container'>
-          <div className='profile_account request display_flex_align_center'>
-            <img src='\images\ProfileImages\user3.jpg' className='profile_avatar_small' />
-            <h5 className='name_request'>Maria Johns <span> wants to add you to friends</span></h5>
-          </div>
-          <div className='accept_reject_container display_flex_align_center'>
-              <Button name={"Accept"} type={ButtonTypes.general} icon={Icons.tick}/>
-              <Button name={"Decline"} type={ButtonTypes.gray} icon={Icons.x}/>
-          </div>
+        <div className='friend_rquests'>
+          {friendRequests.map(request => {
+            return (
+              <div className='request_container' key={request.userName}>
+                <div className='profile_account request display_flex_align_center'>
+                  <img src={BytesToFile(request.profileImage)} className='profile_avatar_small' />
+                  <h5 className='name_request'>{request.name + " " + request.lastName} <span> wants to add you to friends</span></h5>
+                </div>
+                <div className='accept_reject_container display_flex_align_center'>
+                  <Button name={"Accept"} type={ButtonTypes.general} icon={Icons.tick} click={() => acceptRequest(request.userName)} />
+                  <Button name={"Decline"} type={ButtonTypes.gray} icon={Icons.x} />
+                </div>
+              </div>
+            )
+          })}
         </div>
-
-
-      </section>
+      </section> : null}
       <section className='contacts box_style section_splitor'>
         <div className='header_container display_flex_align_center'>
           <h3>Contacts</h3>
-          <span className='total_budge'>54</span>
+          <span className='total_budge'>{friends.length}</span>
         </div>
         <div className='contacts_container'>
-          {<ProfilePicture userInfo={{name:"Maria Johns", image:'/images/ProfileImages/user3.jpg' }} /> }
-          {<ProfilePicture userInfo={{name:"Alex Johns", image:'/images/ProfileImages/user1.jpg' }} /> }
+          {friends.map(item => {
+            return (
+              <ProfilePicture click={() => navigate(Paths.PROFILE+"/"+item.userName)} userInfo={{ name: item.name+" "+item.lastName, image: BytesToFile(item.profileImage) }} />
+            )
+          })}
+          
         </div>
 
       </section>
