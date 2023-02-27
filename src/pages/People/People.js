@@ -5,20 +5,16 @@ import Button from '../../components/UI/button/Button'
 import { APIEndpoints, Paths } from '../../constants/PathURL'
 import { ButtonTypes, Icons } from '../../constants/UiConstant'
 import useRedirect from '../../hooks/useRedirect'
-import actions from '../../store/Actions'
 import { BytesToFile } from '../../Utils/BlobToFile'
 import "./People.css"
 
-const randColor = {
-    background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
-}
 function People() {
     const navigate = useNavigate();
     useRedirect();
     const auth = useSelector(state => state.authentication)
     const [state, setstate] = useState([])
     useEffect(() => {
-        
+
         fetch(APIEndpoints.PEOPLE, {
             method: "GET",
             headers: { "authorization": auth.token }
@@ -26,13 +22,29 @@ function People() {
             .then(res => res.json())
             .then(data => {
                 setstate(data)
-                console.log(data)
             })
-        
+
     }, [])
 
     const goToProfilePage = (id) => {
         navigate(Paths.PROFILE + "/" + id)
+    }
+
+    const addFriendRequest = (userName) => {
+        fetch(APIEndpoints.ADD_FRIEND_REQUEST, {
+            method: "POST",
+            headers: {
+                "authorization": auth.token,
+                "content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                'requestSenderUserName': auth.userName,
+                'requestReceiverUserName': userName
+            })
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     return (
@@ -74,7 +86,7 @@ function People() {
                                 </div>
                             </div>
                             <div className='connection_buttons'>
-                                <Button name="connect" icon={Icons.plus} type={ButtonTypes.general} />
+                                <Button name="connect" icon={Icons.plus} type={ButtonTypes.general} click={() => addFriendRequest(item.userName)} />
                             </div>
                         </div>
                     )
