@@ -7,14 +7,14 @@ import {useSelector} from "react-redux"
 function Navbar() {
   const [state, setstate] = useState(window.location.pathname);
   const auth  = useSelector(state => state.authentication)
-  console.log(state)
+  console.log(auth.userName)
   return (
     <nav className='navbar'>
       <div className="profile_container display_flex_align_center flex_direction_column justify_content_center">
         <div className='profile_account display_flex_align_center  justify_content_center none_selectable'>
           <img src={auth.profileImage} className='profile_avatar profile_image_main' />
         </div>
-        <h2 className='username'>{auth.userName}</h2>
+        <h2 className='username'>{auth.name+" "+auth.lastName}</h2>
       </div>
       <ul className='menu'>
         <li className={state == "/" ? "active" : ""} onClick={() => setstate(Paths.HOME)}>
@@ -27,7 +27,7 @@ function Navbar() {
           <Link to={Paths.CHAT}><i className='bi bi-chat'></i> <span>Chats</span></Link>
         </li>
         <li className={state.includes(Paths.PROFILE) ? "active" : ""} onClick={() => setstate(Paths.PROFILE)}>
-          <Link to={Paths.PROFILE}><i className='bi bi-person'></i> <span>Profile</span></Link>
+          <Link to={Paths.PROFILE+"/"+auth.userName}><i className='bi bi-person'></i> <span>Profile</span></Link>
         </li>
         <li className={state == Paths.SETTINGS ? "active" : ""} onClick={() => setstate(Paths.SETTINGS)}>
           <Link to={Paths.SETTINGS}>
