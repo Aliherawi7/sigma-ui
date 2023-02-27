@@ -34,11 +34,13 @@ function Profile() {
     
     useEffect(() => {
         // get the user info from api
+        console.log(store)
         fetch(APIEndpoints.ONE_PERSON+userName,{
             method:"GET",
             headers:{"Authorization":store.token}
         }).then(res => res.json()
         ).then(data => {
+            console.log(data)
             setUserInfor(data)
         })
     }, [userName])
