@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ProfilePicture.css"
 
-function ProfilePicture({ userInfo, date, size = "mid" }) {
+function ProfilePicture({ userInfo, date, size = "mid", click}) {
     let widthAndHeight = {};
     let fontSize = {}
     if (size === "large") {
@@ -30,7 +30,7 @@ function ProfilePicture({ userInfo, date, size = "mid" }) {
         }
     }
     return (
-        <div className='profile_picture display_flex align_items_center'>
+        <div className='profile_picture display_flex align_items_center' onClick={click}>
             <div className='profile_img_container display_flex align_items_center justify_content_center' style={widthAndHeight}>
                 <img src={userInfo?.image} className='profile_avatar' alt={userInfo?.name} style={widthAndHeight} />
             </div>
