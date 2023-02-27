@@ -71,11 +71,13 @@ function Login() {
       }
       // set the data into store
       console.log(data)
-      setCookie("token",data.accessToken);
-      setCookie("userName", data.accountDTO.name +" "+ data.accountDTO.lastName)
-      setCookie("email", data.accountDTO.email)
-      localStorage.setItem("profileImage", data.accountDTO.profileImage);
-      setCookie("connections", data.accountDTO.connections)
+      setCookie("token",data?.accessToken);
+      setCookie("name", data.accountDTO?.name);
+      setCookie("lastName",data.accountDTO?.lastName)
+      setCookie("email", data.accountDTO?.email)
+      setCookie("userName", data.accountDTO?.userName)
+      localStorage.setItem("profileImage", data.accountDTO?.profileImage);
+      setCookie("connections", data.accountDTO?.connections)
       dispatch({
         type: actions.ADD_USER_INFO,
         payload: data
