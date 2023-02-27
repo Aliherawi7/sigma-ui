@@ -65,7 +65,8 @@
     font-size: 10px;
 }
 
-.contacts_container .profile_account{
+.contacts_container .profile_account, 
+.request_container .profile_account{
     margin: 10px 0;
 }
 
