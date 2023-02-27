@@ -8,6 +8,8 @@ function getAuthInfoFromCookie() {
         return {
             isAuthenticated: true,
             userName: data.get("userName"),
+            name:data.get("name"),
+            lastName: data.get("lastName"),
             email: data.get("email"),
             token: data.get("token"),
             connections: data.get("connections"), 
@@ -40,7 +42,8 @@ const reducer = (state = initailState, action) => {
             const authentication = {
                 isAuthenticated: true,
                 accessToken: action.payload.accessToken,
-                userName: action.payload.accountDTO.name + " " + action.payload.accountDTO.lastName,
+                name: action.payload.accountDTO.name,
+                lastName: action.payload.accountDTO.lastName,
                 email: action.payload.accountDTO.email,
                 token: action.payload.accessToken,
                 connections: action.payload.accountDTO.connections,
