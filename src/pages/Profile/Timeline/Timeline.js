@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Timeline.css"
 import Post from '../../../components/Post/Post'
 import { useSelector } from 'react-redux'
+import { APIEndpoints } from '../../../constants/PathURL'
+
 
 function Timeline() {
     const state = useSelector(state => state.authentication)
+    useEffect(() => {
+        fetch(APIEndpoints.POST)
+    }, [])
     return (
         <div className='profile_timeline'>
             All Post up to now
