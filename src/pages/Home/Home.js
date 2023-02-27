@@ -17,8 +17,8 @@ function Home() {
   return (
     <section className='home fade_in'>
       {/* stories */}
-      <h2 className='home_header'>Stories</h2>
-      <Stories />
+      {/* <h2 className='home_header'>Stories</h2>
+      <Stories /> */}
 
       <h2 className='home_header'>Feed</h2>
       <div className='whats_new box_shadow background_color'>
