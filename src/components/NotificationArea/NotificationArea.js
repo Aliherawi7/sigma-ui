@@ -20,16 +20,14 @@ function NotificationArea() {
       headers: { "authorization": auth.token }
     }).then(res => res.json())
       .then(data => {
-        console.log(data)
         setFriendReqeust(data)
       });
 
-    fetch(APIEndpoints.ALL_Friends(auth.userName), {
+    fetch(APIEndpoints.ALL_Friends(auth?.userName), {
       method: "GET",
       headers: { "authorization": auth.token }
     }).then(res => res.json())
       .then(data => {
-        console.log(data)
         setFriends(data)
       });
 
@@ -43,20 +41,19 @@ function NotificationArea() {
         "content-type": 'application/json'
       },
       body: JSON.stringify({
-        "requestReceiverUserName":auth.userName,
-        "requestSenderUserName":requestSenderUserName
+        "requestReceiverUserName": auth.userName,
+        "requestSenderUserName": requestSenderUserName
       })
     })
-    .then(res => {
-      if(res.ok){
-        setFriendReqeust(friendRequests.filter(item => item.userName != requestSenderUserName))
-      }else{
-        console.log(res)
-      }
-    });
+      .then(res => {
+        if (res.ok) {
+          setFriendReqeust(friendRequests.filter(item => item.userName != requestSenderUserName))
+        } else {
+          console.log(res)
+        }
+      });
   }
 
-  console.log(friendRequests)
   return (
     <section className='notification_area'>
 
@@ -82,24 +79,21 @@ function NotificationArea() {
           })}
         </div>
       </section> : null}
-      <section className='contacts box_style section_splitor'>
-        <div className='header_container display_flex_align_center'>
-          <h3>Contacts</h3>
-          <span className='total_budge'>{friends.length}</span>
-        </div>
-        <div className='contacts_container'>
-          {friends.map(item => {
-            return (
-              <ProfilePicture click={() => navigate(Paths.PROFILE+"/"+item.userName)} userInfo={{ name: item.name+" "+item.lastName, image: BytesToFile(item.profileImage) }} />
-            )
-          })}
-          
-        </div>
-
-      </section>
-
-
-
+      {friends.length > 0 ?
+        <section className='contacts box_style section_splitor'>
+          <div className='header_container display_flex_align_center'>
+            <h3>Contacts</h3>
+            <span className='total_budge'>{friends.length}</span>
+          </div>
+          <div className='contacts_container'>
+            {friends?.map(item => {
+              return (
+                <ProfilePicture key={item.userName} click={() => navigate(Paths.PROFILE + "/" + item.userName)} userInfo={{ name: item.name + " " + item.lastName, image: BytesToFile(item.profileImage) }} />
+              )
+            })}
+          </div>
+        </section>
+        : null}
 
     </section >
   )
