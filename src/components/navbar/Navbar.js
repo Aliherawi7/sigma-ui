@@ -7,7 +7,7 @@ import {useSelector} from "react-redux"
 function Navbar() {
   const [state, setstate] = useState(window.location.pathname);
   const auth  = useSelector(state => state.authentication)
-  console.log(auth.userName)
+  console.log(auth)
   return (
     <nav className='navbar'>
       <div className="profile_container display_flex_align_center flex_direction_column justify_content_center">
