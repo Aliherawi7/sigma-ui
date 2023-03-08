@@ -1,7 +1,6 @@
 import actions from "./Actions";
-import { BytesToFile } from "../Utils/BlobToFile";
 import { getCookies } from "../Utils/Cookie";
-import { act } from "react-dom/test-utils";
+import { APIEndpoints } from "../constants/PathURL";
 function getAuthInfoFromCookie() {
     let data = getCookies()
     if (data.size > 0) {
@@ -13,7 +12,7 @@ function getAuthInfoFromCookie() {
             email: data.get("email"),
             token: data.get("token"),
             connections: data.get("connections"), 
-            profileImage: BytesToFile(localStorage.getItem("profileImage"), "image/png")
+            profileImage: APIEndpoints.HOSTNAME+data.get("profileImage")
         }
     }
 
@@ -47,7 +46,7 @@ const reducer = (state = initailState, action) => {
                 email: action.payload.accountDTO.email,
                 token: action.payload.accessToken,
                 connections: action.payload.accountDTO.connections,
-                profileImage: BytesToFile(action.payload.accountDTO.profileImage, "image/png")
+                profileImage: APIEndpoints.HOSTNAME+action.payload.accountDTO.profilePicturePath,
             }
             return {
                 ...state,
