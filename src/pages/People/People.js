@@ -9,25 +9,24 @@ import useFetch from '../../hooks/useFetch'
 import useRedirect from '../../hooks/useRedirect'
 import { BytesToFile } from '../../Utils/BlobToFile'
 import "./People.css"
+import Error from "../../components/UI/Error/Error"
 
 function People() {
     const navigate = useNavigate();
     useRedirect();
     const auth = useSelector(state => state.authentication)
-    const [state, setstate] = useState([])
     const { data, error, loading, setData } = useFetch(APIEndpoints.PEOPLE, { method: "GET", headers: { "authorization": auth.token } });
     let elements;
 
     if (loading) {
         elements = <Spinner />
-    }
-
-    if (data) {
+    }else if (data) {
         elements = (<div className='people_card_container display_flex justify_content_center position_relative'>
             {data.map(item => {
                 const randColor = {
                     background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
                 }
+                
                 return (
                     <div className='people_card box_shadow' key={item.userName}>
                         <div className='card_header' style={{ "--background": randColor.background }}>
@@ -35,7 +34,7 @@ function People() {
                         <div
                             onClick={() => goToProfilePage(item.userName)}
                             className='profile_img_container display_flex align_items_center justify_content_center'>
-                            <img src={BytesToFile(item?.profileImage)} className='profile_avatar' alt={item?.name} />
+                            <img src={APIEndpoints.HOSTNAME+item.profilePictureUrl} className='profile_avatar' alt={item?.name} />
                         </div>
                         <div className='profile_info position_relative'>
                             <h5 className='title' onClick={() => goToProfilePage(item.userName)}>{item.name + " " + item.lastName}</h5>
@@ -50,6 +49,7 @@ function People() {
                                 </div>
                             </div>
                         </div>
+                        {/*  this button should be in selection case */}
                         <div className='connection_buttons'>
                             <Button name="connect" icon={Icons.plus} type={ButtonTypes.general} click={() => addFriendRequest(item.userName)} />
                         </div>
@@ -57,6 +57,8 @@ function People() {
                 )
             })}
         </div>)
+    }else if(error){
+        elements = <Error />
     }
     console.log(data)
     // useEffect(() => {
