@@ -23,7 +23,7 @@ function NotificationArea() {
         setFriendReqeust(data)
       });
 
-    fetch(APIEndpoints.ALL_Friends(auth?.userName), {
+    fetch(APIEndpoints.ALL_FRIENDS(auth?.userName), {
       method: "GET",
       headers: { "authorization": auth.token }
     }).then(res => res.json())
@@ -67,7 +67,9 @@ function NotificationArea() {
             return (
               <div className='request_container' key={request.userName}>
                 <div className='profile_account request display_flex_align_center'>
-                  <img src={BytesToFile(request.profileImage)} className='profile_avatar_small' />
+                  <div className='profile_container'>
+                    <img src={APIEndpoints.HOSTNAME+request.profilePicturePath} className='profile_avatar profile_avatar_small' />
+                  </div>
                   <h5 className='name_request'>{request.name + " " + request.lastName} <span> wants to add you to friends</span></h5>
                 </div>
                 <div className='accept_reject_container display_flex_align_center'>
@@ -87,8 +89,11 @@ function NotificationArea() {
           </div>
           <div className='contacts_container'>
             {friends?.map(item => {
+              console.log("items in friends:", item)
               return (
-                <ProfilePicture key={item.userName} click={() => navigate(Paths.PROFILE + "/" + item.userName)} userInfo={{ name: item.name + " " + item.lastName, image: BytesToFile(item.profileImage) }} />
+                <ProfilePicture key={item.userName} 
+                click={() => navigate(Paths.PROFILE + "/" + item.userName)} 
+                userInfo={{ name: item.name + " " + item.lastName, image: APIEndpoints.HOSTNAME+item.profilePicturePath }} />
               )
             })}
           </div>
