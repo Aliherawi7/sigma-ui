@@ -6,6 +6,7 @@ import { validationFuncations } from '../../Utils/ValidationsFunctions'
 import { useDispatch } from 'react-redux'
 import actions from '../../store/Actions'
 import { getCookies, setCookie } from '../../Utils/Cookie'
+import { APIEndpoints } from '../../constants/PathURL'
 
 function Login() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ function Login() {
       formData.append(item, inputs[item].value)
     })
 
-    fetch("http://localhost:9090/api/login", {
+    fetch(APIEndpoints.LOGIN, {
       method: "POST",
       headers: {},
       body: formData
@@ -76,7 +77,7 @@ function Login() {
       setCookie("lastName",data.accountDTO?.lastName)
       setCookie("email", data.accountDTO?.email)
       setCookie("userName", data.accountDTO?.userName)
-      localStorage.setItem("profileImage", data.accountDTO?.profileImage);
+      setCookie("profileImage", data.accountDTO?.profilePicturePath)
       setCookie("connections", data.accountDTO?.connections)
       dispatch({
         type: actions.ADD_USER_INFO,
