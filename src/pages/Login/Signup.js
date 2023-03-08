@@ -7,6 +7,7 @@ import { avatar } from "../../constants/UiConstant"
 import { useDispatch } from 'react-redux'
 import actions from '../../store/Actions'
 import { setCookie } from '../../Utils/Cookie'
+import { APIEndpoints } from '../../constants/PathURL'
 
 
 
@@ -82,7 +83,7 @@ function Signup() {
     })
     formData.append("img", profileImg.file)
     
-    fetch("http://localhost:9090/api/accounts",{
+    fetch(APIEndpoints.ACCOUNTS,{
       method:"POST",
       headers:{},
       body:formData
