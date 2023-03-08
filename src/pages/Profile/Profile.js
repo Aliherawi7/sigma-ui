@@ -41,12 +41,13 @@ function Profile() {
     }else if(data?.length == 0){
         elements = <NotFound />
     }else if (data) {
+        console.log("in prof", data)
         elements = (
             <>
                 {/* the navbar of the profile page */}
                 <div className='profile_header'>
                     <div className='header_image' style={{ "--background": randColor.background }}>
-                        <ProfilePicture userInfo={{ name: data?.name + " " + data?.lastName, image: BytesToFile(data?.profileImage) }} size={"large"} />
+                        <ProfilePicture userInfo={{ name: data?.name + " " + data?.lastName, image: APIEndpoints.HOSTNAME+data?.profilePictureUrl }} size={"large"} />
                     </div>
                     <ul className='profile_menu display_flex justify_content_center'>
                         <li className={state.name == components.Timeline.name ? 'active' : ''} onClick={() => setstate(components.Timeline)}>Timeline</li>
