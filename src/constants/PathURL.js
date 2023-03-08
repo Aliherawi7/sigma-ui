@@ -9,11 +9,14 @@ export const Paths = {
 }
 
 export const APIEndpoints = {
-    PEOPLE: "http://localhost:9090/api/accounts/all",
-    ONE_PERSON:"http://localhost:9090/api/accounts/userName/",
-    POST:"http://localhost:9090/api/posts/userName/",
-    ADD_FRIEND_REQUEST: 'http://localhost:9090/api/friendRequests',
-    ALL_Received_Friend_Reqeuests:"http://localhost:9090/api/friendRequests/allReceived",
-    ACCEPT_FRIEND_REQUEST:"http://localhost:9090/api/friendRequests/accept",
-    ALL_Friends : (userName) => `http://localhost:9090/api/accounts/${userName}/friends`,
+    HOSTNAME:"http://localhost:9090/",
+    LOGIN:"http://localhost:9090/api/v1/login",
+    ACCOUNTS:"http://localhost:9090/api/v1/accounts",
+    PEOPLE: "http://localhost:9090/api/v1/accounts/all",
+    ONE_PERSON:"http://localhost:9090/api/v1/accounts/userName/",
+    POST:"http://localhost:9090/api/v1/posts/userName/",
+    ADD_FRIEND_REQUEST: 'http://localhost:9090/api/v1/friendRequests',
+    ALL_Received_Friend_Reqeuests:"http://localhost:9090/api/v1/friendRequests/allReceived",
+    ACCEPT_FRIEND_REQUEST:"http://localhost:9090/api/v1/friendRequests/accept",
+    ALL_FRIENDS : (userName) => `http://localhost:9090/api/v1/accounts/${userName}/friends`,
 }
