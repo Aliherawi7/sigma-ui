@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 function NotificationArea() {
   const navigate = useNavigate();
   const auth = useSelector(state => state.authentication);
+  console.log(auth)
   const [friendRequests, setFriendReqeust] = useState([]);
   const [friends, setFriends] = useState([]);
   useEffect(() => {
