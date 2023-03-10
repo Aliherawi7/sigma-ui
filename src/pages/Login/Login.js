@@ -77,7 +77,7 @@ function Login() {
       setCookie("lastName",data.accountDTO?.lastName)
       setCookie("email", data.accountDTO?.email)
       setCookie("userName", data.accountDTO?.userName)
-      setCookie("profileImage", data.accountDTO?.profilePicturePath)
+      setCookie("profileImage", data.accountDTO?.profilePictureUrl)
       setCookie("connections", data.accountDTO?.connections)
       dispatch({
         type: actions.ADD_USER_INFO,
@@ -99,7 +99,7 @@ function Login() {
       <form className='display_flex flex_direction_column'>
         {Object.keys(inputs).map(name => {
           return (
-            <>
+            <div key={name}>
               <input
                 key={name}
                 type={inputs[name].type}
@@ -109,7 +109,7 @@ function Login() {
                 placeholder={inputs[name].placeholder}
                 onChange={(e) => changeInputValue(name, e.target.value)} />
               {inputs[name].isValid ? null : <span className="warning">{inputs[name].warning}</span>}
-            </>
+            </div>
           )
         })}
         <Button name="Login" type={"general"} click={sendInformationToServer} />
