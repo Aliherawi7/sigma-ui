@@ -94,7 +94,7 @@ function Signup() {
       setCookie("token",data.accessToken);
       setCookie("userName", data.accountDTO.name +" "+ data.accountDTO.lastName)
       setCookie("email", data.accountDTO.email)
-      localStorage.setItem("profileImage", data.accountDTO.profileImage);
+      setCookie("profileImage", data.accountDTO?.profilePictureUrl)
       setCookie("connections", data.accountDTO.connections)
       dispatch({
         type:actions.ADD_USER_INFO,
