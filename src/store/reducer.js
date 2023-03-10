@@ -3,6 +3,7 @@ import { getCookies } from "../Utils/Cookie";
 import { APIEndpoints } from "../constants/PathURL";
 function getAuthInfoFromCookie() {
     let data = getCookies()
+    console.log(data.get("profileImage"))
     if (data.size > 0) {
         return {
             isAuthenticated: true,
@@ -43,10 +44,11 @@ const reducer = (state = initailState, action) => {
                 accessToken: action.payload.accessToken,
                 name: action.payload.accountDTO.name,
                 lastName: action.payload.accountDTO.lastName,
+                userName: action.payload.accountDTO.userName,
                 email: action.payload.accountDTO.email,
                 token: action.payload.accessToken,
                 connections: action.payload.accountDTO.connections,
-                profileImage: APIEndpoints.HOSTNAME+action.payload.accountDTO.profilePicturePath,
+                profileImage: APIEndpoints.HOSTNAME+action.payload.accountDTO.profilePictureUrl,
             }
             return {
                 ...state,
