@@ -55,6 +55,7 @@ function NotificationArea() {
       });
   }
 
+  console.log(friendRequests)
   return (
     <section className='notification_area'>
 
@@ -69,7 +70,7 @@ function NotificationArea() {
               <div className='request_container' key={request.userName}>
                 <div className='profile_account request display_flex_align_center'>
                   <div className='profile_container'>
-                    <img src={APIEndpoints.HOSTNAME+request.profilePicturePath} className='profile_avatar profile_avatar_small' />
+                    <img src={APIEndpoints.HOSTNAME+request.profilePictureUrl} className='profile_avatar profile_avatar_small' />
                   </div>
                   <h5 className='name_request'>{request.name + " " + request.lastName} <span> wants to add you to friends</span></h5>
                 </div>
@@ -94,7 +95,7 @@ function NotificationArea() {
               return (
                 <ProfilePicture key={item.userName} 
                 click={() => navigate(Paths.PROFILE + "/" + item.userName)} 
-                userInfo={{ name: item.name + " " + item.lastName, image: APIEndpoints.HOSTNAME+item.profilePicturePath }} />
+                userInfo={{ name: item.name + " " + item.lastName, image: APIEndpoints.HOSTNAME+item.profilePictureUrl }} />
               )
             })}
           </div>
