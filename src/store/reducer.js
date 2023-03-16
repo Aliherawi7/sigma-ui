@@ -8,19 +8,19 @@ function getAuthInfoFromCookie() {
         return {
             isAuthenticated: true,
             userName: data.get("userName"),
-            name:data.get("name"),
+            name: data.get("name"),
             lastName: data.get("lastName"),
             email: data.get("email"),
             token: data.get("token"),
-            connections: data.get("connections"), 
-            profileImage: APIEndpoints.HOSTNAME+data.get("profileImage")
+            connections: data.get("connections"),
+            profileImage: APIEndpoints.HOSTNAME + data.get("profileImage")
         }
     }
 
 }
 const initailState = {
     currentPathLocaion: window.location.pathname,
-    authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie(): {
+    authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie() : {
         isAuthenticated: false,
         accessToken: "",
         userName: "",
@@ -34,9 +34,9 @@ const initailState = {
 const reducer = (state = initailState, action) => {
     switch (action.type) {
         case actions.ADD_CRURRENT_URL:
-            return{
+            return {
                 ...state,
-                currentPathLocaion:action.payload
+                currentPathLocaion: action.payload
             }
         case actions.ADD_USER_INFO:
             const authentication = {
@@ -48,17 +48,24 @@ const reducer = (state = initailState, action) => {
                 email: action.payload.accountDTO.email,
                 token: action.payload.accessToken,
                 connections: action.payload.accountDTO.connections,
-                profileImage: APIEndpoints.HOSTNAME+action.payload.accountDTO.profilePictureUrl,
+                profileImage: APIEndpoints.HOSTNAME + action.payload.accountDTO.profilePictureUrl,
             }
             return {
                 ...state,
                 authentication: authentication
             }
-            case actions.LOGOUT:
-                return {
-                    ...state,
-                    authentication:action.payload
-                }
+        case actions.LOGOUT:
+            return {
+                ...state,
+                authentication: action.payload
+            }
+        case actions.CURRENT_CHAT:
+            return{
+                ...state,
+                currentChat : action.payload
+            }
+
+
         default:
             return state
     }
