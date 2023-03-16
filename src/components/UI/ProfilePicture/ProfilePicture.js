@@ -30,7 +30,6 @@ function ProfilePicture({ userInfo, date, size = "mid", click}) {
         }
     }
 
-    console.log(userInfo)
     return (
         <div className='profile_picture display_flex align_items_center' onClick={click}>
             <div className='profile_img_container display_flex align_items_center justify_content_center' style={widthAndHeight}>
