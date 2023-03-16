@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom'
 function NotificationArea() {
   const navigate = useNavigate();
   const auth = useSelector(state => state.authentication);
-  console.log(auth)
   const [friendRequests, setFriendReqeust] = useState([]);
   const [friends, setFriends] = useState([]);
   useEffect(() => {
@@ -55,7 +54,6 @@ function NotificationArea() {
       });
   }
 
-  console.log(friendRequests)
   return (
     <section className='notification_area'>
 
@@ -91,7 +89,6 @@ function NotificationArea() {
           </div>
           <div className='contacts_container'>
             {friends?.map(item => {
-              console.log("items in friends:", item)
               return (
                 <ProfilePicture key={item.userName} 
                 click={() => navigate(Paths.PROFILE + "/" + item.userName)} 
