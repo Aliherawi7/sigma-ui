@@ -10,7 +10,6 @@ function useFetch(url, options) {
             try {
                 setLoading(true);
                 const response = await fetch(url, options);
-                console.log(response)
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
