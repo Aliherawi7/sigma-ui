@@ -19,4 +19,5 @@ export const APIEndpoints = {
     ALL_Received_Friend_Reqeuests:"http://localhost:9090/api/v1/friendRequests/allReceived",
     ACCEPT_FRIEND_REQUEST:"http://localhost:9090/api/v1/friendRequests/accept",
     ALL_FRIENDS : (userName) => `http://localhost:9090/api/v1/accounts/${userName}/friends`,
+    MESSAGE_OF_SPECIFIC_ACCOUNT: (username) => `http://localhost:9090/api/v1/messages/${username}`
 }
