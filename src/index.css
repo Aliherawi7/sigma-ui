@@ -131,6 +131,8 @@ input:-internal-autofill-selected {
 .profile_avatar_small {
   width: 30px;
   height: 30px;
+  object-fit: cover;
+  object-position: top;
 }
 
 img {
