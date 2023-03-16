@@ -1,0 +1,58 @@
+.chat .contacts_list{
+    padding: 5px;
+    background: #29171a;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.contact_to_chat{
+    position: relative;
+    background-color: #3e3e3e54;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 0;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.contacts_container{
+    overflow-y: scroll;
+}
+.contacts_list .search_bar{
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+.contacts_list .search_bar input{
+    width: 190px;
+}
+.contacts_list .search_bar input::placeholder{
+    font-size: 12px;
+}
+
+.active_badge{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background-color: var(--light_green);
+}
+
+.contact_text{
+    text-align: left;
+    line-height: 18px;
+    margin-left: 10px;
+}
+.contact_text p{
+    color: #ddd;
+    font-size: 8px;
+    width: 130px;
+    line-height: 15px;
+}
+.badge_container{
+    margin-left: 10px;
+}
+.contact_to_chat .last_seen{
+    min-width: max-content;
+    font-size: 8px;
+    margin-bottom: 10px;
+}
