@@ -36,6 +36,8 @@
 .people .people_card_container{
     margin-top: 10px;
     flex-flow: wrap;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .people .people_card{
