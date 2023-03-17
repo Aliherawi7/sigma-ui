@@ -4,7 +4,6 @@ import Button from '../UI/button/Button'
 import "./NotificationArea.css"
 import { useSelector } from 'react-redux'
 import ProfilePicture from '../UI/ProfilePicture/ProfilePicture'
-import { BytesToFile } from '../../Utils/BlobToFile'
 import { APIEndpoints, Paths } from '../../constants/PathURL'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,7 +22,7 @@ function NotificationArea() {
         setFriendReqeust(data)
       });
 
-    fetch(APIEndpoints.ALL_FRIENDS(auth?.userName), {
+    fetch(APIEndpoints.ALL_FRIENDS(auth?.userName, 1, 15), {
       method: "GET",
       headers: { "authorization": auth.token }
     }).then(res => res.json())
