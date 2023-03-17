@@ -31,3 +31,7 @@ export function getCookies() {
     }
     return cookies;
 }
+
+export function getCookie(key){
+   return getCookies().get(key);
+}
