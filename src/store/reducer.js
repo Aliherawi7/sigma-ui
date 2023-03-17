@@ -1,5 +1,5 @@
 import actions from "./Actions";
-import { getCookies } from "../Utils/Cookie";
+import { getCookie, getCookies } from "../Utils/Cookie";
 import { APIEndpoints } from "../constants/PathURL";
 function getAuthInfoFromCookie() {
     let data = getCookies()
@@ -27,8 +27,10 @@ const initailState = {
         token: "",
         profileImage: "",
         email: "",
-        connections: 0
-    }
+        connections: 0,
+    },
+    lastChat: getCookie("lastChat"),
+    currentChat:""
 };
 
 const reducer = (state = initailState, action) => {
@@ -60,9 +62,14 @@ const reducer = (state = initailState, action) => {
                 authentication: action.payload
             }
         case actions.CURRENT_CHAT:
+            return {
+                ...state,
+                currentChat: action.payload
+            }
+        case actions.ADD_PEOPLE:
             return{
                 ...state,
-                currentChat : action.payload
+                people:[...state?.people, action?.payload]
             }
 
 
