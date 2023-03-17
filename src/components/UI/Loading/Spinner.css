@@ -2,6 +2,7 @@
 .spinner__wrapper {
     display: block;
     text-align: center;
+    min-height: 100px;
 }
 
 .spinner {
