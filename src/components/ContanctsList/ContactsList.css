@@ -15,6 +15,7 @@
 }
 .contacts_container{
     overflow-y: scroll;
+    height: 90%;
 }
 .contacts_list .search_bar{
     margin-top: 8px;
