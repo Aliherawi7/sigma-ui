@@ -50,9 +50,7 @@ function People() {
 
 
 
-    if (loading) {
-        elements = <Spinner />
-    } else if (data) {
+    if (data) {
         elements = (
             <div className='people_card_container display_flex justify_content_center position_relative'>
                 {sortedPeople.map((item, index) => {

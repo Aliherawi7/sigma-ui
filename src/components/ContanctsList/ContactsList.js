@@ -46,13 +46,9 @@ function ContactsList({ setCurrentChat }) {
 
 
     let element;
-    if (loading) {
-        element = <Spinner />;
-    } else if (error) {
+    if (error) {
         console.log(error)
         element = <Error />
-    } else if (!data) {
-        element = "You have no friend"
     } else if (data) {
         element = (
             data.length > 0 ?
@@ -103,6 +99,8 @@ function ContactsList({ setCurrentChat }) {
                     )
                 })
                 : <h5>You don't have any friend</h5>);
+    } else if (!data) {
+        element = "You have no friend"
     }
     return (
         <div className='contacts_list'>
