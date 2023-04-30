@@ -1,125 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Button from '../../components/UI/button/Button'
 import Spinner from '../../components/UI/Loading/Spinner'
-import { APIEndpoints, Paths } from '../../constants/PathURL'
-import { ButtonTypes, Icons } from '../../constants/UiConstant'
-import useFetch from '../../hooks/useFetch'
+import { APIEndpoints } from '../../constants/PathURL'
+import { Icons } from '../../constants/UiConstant'
 import useRedirect from '../../hooks/useRedirect'
 import "./People.css"
 import Error from "../../components/UI/Error/Error"
+import PeopleCard from '../../components/PeopleCard/PeopleCard'
+import useFetch from '../../hooks/useFetch'
 
 
 function People() {
-    const navigate = useNavigate();
     useRedirect();
     const [pagination, setPagination] = useState({ offset: 1, pageSize: 12 })
+    const [sortedPeople, setSortedPeople] = useState([]);
     const auth = useSelector(state => state.authentication)
-    const [loading, setLoading] = useState(true);
-    const [error , setError] = useState(false)
-    const [data, setData ] = useState([]);
+    const { data, error, loading, setData, hasMore } = useFetch(APIEndpoints.PEOPLE(pagination.offset, pagination.pageSize), {
+        method: "GET",
+        headers: { "authorization": auth.token }
+    });
+    const [search, setSearch] = useState("");
+    const lastNode = useRef();
     let elements;
 
     useEffect(() => {
-        fetch(APIEndpoints.PEOPLE(pagination.offset, pagination.pageSize),{
-            method: "GET",
-            headers: { "authorization": auth.token }
-        }).then(res => {
-            if(res.ok){
-                return res.json();
-            }
-        }).then(items => {
-            console.log("prev data ",data)
-            console.log("new data ",items)
-            setData([...data, ...items])
-        }).catch(err => {
-            console.log(err)
-            setError(true)
-        }).finally(()=>{
-            setLoading(false)
-        })
-
-    }, [pagination])
-
-  //  console.log(data)
-    const goToProfilePage = (id) => {
-        navigate(Paths.PROFILE + "/" + id)
-    }
-
-    const fetchNewPeople = (e) => {
-        //  console.log(e)
-        const { scrollHeight, scrollTop, clientHeight } = e.target;
-        if ((scrollTop + clientHeight) > scrollHeight) {
-            console.log("time to fetch data")
-            setPagination({...pagination, offset:pagination.offset+1});
+        let holder = []
+        for (let d in data) {
+            let item = data[d];
+            holder.push(item);
         }
+        setSortedPeople(holder)
 
-        //   console.log(scrollHeight, scrollTop, clientHeight)
-    }
+    }, [data, pagination])
 
-    const addFriendRequest = (userName) => {
-        fetch(APIEndpoints.ADD_FRIEND_REQUEST, {
-            method: "POST",
-            headers: {
-                "authorization": auth.token,
-                "content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                'requestSenderUserName': auth.userName,
-                'requestReceiverUserName': userName
-            })
+
+    const lastNodeReference = node => {
+        if (loading) return;
+        if (lastNode.current) lastNode.current.disconnect();
+        lastNode.current = new IntersectionObserver(enteries => {
+            if (enteries[0].isIntersecting) {
+                if (hasMore) {
+                    setPagination({ offset: pagination.offset + 1, pageSize: pagination.pageSize })
+                }
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
+        if (node) lastNode.current.observe(node);
     }
-    console.log(pagination)
+
+
+
     if (loading) {
         elements = <Spinner />
     } else if (data) {
         elements = (
-            <div className='people_card_container display_flex justify_content_center position_relative'
-                onScroll={(e) => fetchNewPeople(e)}>
-                {data.map(item => {
+            <div className='people_card_container display_flex justify_content_center position_relative'>
+                {sortedPeople.map((item, index) => {
                     const randColor = {
                         background: `linear-gradient(45deg, hsl(${(Math.random() * 255).toFixed(0)}, 60%, 50%), hsl(${(Math.random() * 255).toFixed(0)}, 30%, 50%))`
                     }
+                    if (sortedPeople.length === index + 1) {
+                        return <PeopleCard
+                            userName={item.userName}
+                            name={item.name}
+                            lastName={item.lastName}
+                            profilePictureUrl={item.profilePictureUrl}
+                            friends={item.friends}
+                            posts={item.posts}
+                            key={item.userName}
+                            randColor={randColor}
+                            customRef={lastNodeReference}
+                        />
+                    }
                     return (
-                        <div className='people_card box_shadow' key={item.userName}>
-                            <div className='card_header' style={{ "--background": randColor.background }}>
-                            </div>
-                            <div
-                                onClick={() => goToProfilePage(item.userName)}
-                                className='profile_img_container display_flex align_items_center justify_content_center'>
-                                <img src={APIEndpoints.HOSTNAME + item.profilePictureUrl} className='profile_avatar' alt={item?.name} />
-                            </div>
-                            <div className='profile_info position_relative'>
-                                <h5 className='title' onClick={() => goToProfilePage(item.userName)}>{item.name + " " + item.lastName}</h5>
-                                <div className='connections_posts display_flex justify_content_center'>
-                                    <div className='container display_flex flex_direction_column'>
-                                        <span><strong>{item.friends}</strong></span>
-                                        <span>Friends</span>
-                                    </div>
-                                    <div className='container display_flex flex_direction_column'>
-                                        <span><strong>1.2k</strong></span>
-                                        <span>Posts</span>
-                                    </div>
-                                </div>
-                            </div>
-                            {/*  this button should be in selection case */}
-                            <div className='connection_buttons'>
-                                <Button name="connect" icon={Icons.plus} type={ButtonTypes.general} click={() => addFriendRequest(item.userName)} />
-                            </div>
-                        </div>
+                        <PeopleCard
+                            userName={item.userName}
+                            name={item.name}
+                            lastName={item.lastName}
+                            profilePictureUrl={item.profilePictureUrl}
+                            friends={item.friends}
+                            posts={item.posts}
+                            key={item.userName}
+                            randColor={randColor}
+                        />
                     )
                 })}
+
             </div>)
     } else if (error) {
         elements = <Error />
     }
-    console.log(data)
     return (
         <div className='people' >
             <div className='header display_flex align_items_center justify_content_space_between'>
@@ -127,11 +97,22 @@ function People() {
                 <div className='search_bar position_relative'>
                     <i className={Icons.search}></i>
                     <form>
-                        <input type="text" className='search_box input' placeholder='Search people' />
+                        <input
+                            type="text"
+                            className='search_box input'
+                            placeholder='Search people'
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)} />
                     </form>
                 </div>
             </div>
-            {elements}
+
+            <section style={{ position: "relative" }}>
+                {elements}
+                {hasMore && <Spinner />}
+                {!hasMore && <h5>end of the the items</h5>}
+            </section>
+
         </div>
     )
 }

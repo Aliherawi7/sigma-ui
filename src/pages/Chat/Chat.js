@@ -8,6 +8,7 @@ import useFetch from "../../hooks/useFetch"
 import { useSelector } from 'react-redux'
 import ContactsList from '../../components/ContanctsList/ContactsList'
 import { getCookie, getCookies } from '../../Utils/Cookie'
+import useFetchIndividual from '../../hooks/useFetchIndividual'
 
 
 
@@ -18,27 +19,26 @@ function Chat() {
     let [currentChat, setCurrentChat] = useState(getCookie("lastChat"));
     const [currentFrient, setCurrentFriend] = useState({});
     const { data, error, loading, setData } =
-        useFetch(APIEndpoints.MESSAGE_OF_SPECIFIC_ACCOUNT(currentChat ? currentChat : ""),
+        useFetchIndividual(APIEndpoints.MESSAGE_OF_SPECIFIC_ACCOUNT(currentChat ? currentChat : ""),
             { method: "GET", headers: { "Authorization": auth.token } })
-    console.log(data)
+
     useEffect(() => {
-        fetch(APIEndpoints.ONE_PERSON+currentChat,{
-            method:"GET",
-            headers:{
-                "Authorization":auth.token,
-                "content-type":"application/json"
+        fetch(APIEndpoints.ONE_PERSON + currentChat, {
+            method: "GET",
+            headers: {
+                "Authorization": auth.token,
+                "content-type": "application/json"
             },
-            
         })
-        .then(res => {
-            if(res.ok){
-                return res.json();
-            }else{
-                throw new Error(res.statusText);
-            }
-        }).then(data => {
-            setCurrentFriend(data)
-        })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error(res.statusText);
+                }
+            }).then(data => {
+                setCurrentFriend(data)
+            })
 
     }, [currentChat])
 
@@ -48,14 +48,14 @@ function Chat() {
     }
 
     const sendMessage = (msg) => {
-        
+
     }
     return (
         <section className='chat height_100 fade_in '>
             {<ContactsList setCurrentChat={setCurrentChat} />}
-            {currentChat? <div className='messages_panel'>
+            {currentChat ? <div className='messages_panel'>
                 <div className='header display_flex'>
-                    <img src={APIEndpoints.HOSTNAME+currentFrient.profilePictureUrl} className='profile_avatar_small' />
+                    <img src={APIEndpoints.HOSTNAME + currentFrient.profilePictureUrl} className='profile_avatar_small' />
                     <div className='contact_name_status'>
                         <h5 className='name'>
                             {currentFrient.name + " " + currentFrient.lastName}
@@ -67,31 +67,31 @@ function Chat() {
                 </div>
                 <div className='message_panel'>
                     <div className='messages_container display_flex flex_direction_column'>
-                        {data.length > 0 ? data?.map(item => {
+                        {data?.length > 0 ? data?.map(item => {
                             var date = new Date(item.dateTime)
-                        
+
                             if (item.receiverUsername == auth.userName) {
                                 return (
                                     <div className='receive_message display_flex'>
-                                        <img src={APIEndpoints.HOSTNAME+item.senderProfileImageUrl} className='profile_avatar_small' />
+                                        <img src={APIEndpoints.HOSTNAME + item.senderProfileImageUrl} className='profile_avatar_small' />
                                         <div className='message_body display_flex flex_direction_column'>
                                             <p className='message_value'>{item.text}</p>
-                                            <span className='message_date'>{date.getHours()+":"+date.getMinutes()}</span>
+                                            <span className='message_date'>{date.getHours() + ":" + date.getMinutes()}</span>
                                         </div>
                                     </div>
                                 )
-                            }else {
-                                return(
-                                <div className='send_message display_flex'>
-                                    <div className='message_body display_flex flex_direction_column'>
-                                        <p className='message_value'>{item.text}</p>
-                                        <span className='message_date'>{date.getHours()+":"+date.getMinutes()}</span>
+                            } else {
+                                return (
+                                    <div className='send_message display_flex'>
+                                        <div className='message_body display_flex flex_direction_column'>
+                                            <p className='message_value'>{item.text}</p>
+                                            <span className='message_date'>{date.getHours() + ":" + date.getMinutes()}</span>
+                                        </div>
+                                        <img src={APIEndpoints.HOSTNAME + item.senderProfileImageUrl} className='profile_avatar_small' />
                                     </div>
-                                    <img src={APIEndpoints.HOSTNAME+item.senderProfileImageUrl} className='profile_avatar_small' />
-                                </div>
                                 )
                             }
-                        }) : <h5 style={{height:"60vh"}}className='display_flex width_100 display_flex_align_center justify_content_center'>No messages here yet...</h5>}
+                        }) : <h5 style={{ height: "60vh" }} className='display_flex width_100 display_flex_align_center justify_content_center'>No messages here yet...</h5>}
 
 
 

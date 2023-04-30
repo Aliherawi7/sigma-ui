@@ -9,9 +9,8 @@ import Photos from "./photos/Photos"
 import ProfilePicture from '../../components/UI/ProfilePicture/ProfilePicture'
 import { APIEndpoints } from '../../constants/PathURL'
 import { useParams } from 'react-router-dom'
-import { BytesToFile } from '../../Utils/BlobToFile'
 import useMoveToTopOfPage from '../../hooks/useMoveToTopOfPage'
-import useFetch from '../../hooks/useFetch'
+import useFetchIndividual from '../../hooks/useFetchIndividual'
 import Spinner from '../../components/UI/Loading/Spinner'
 import Error from '../../components/UI/Error/Error'
 import NotFound from '../NotFound/NotFound'
@@ -32,22 +31,23 @@ function Profile() {
     const { userName } = useParams();
     let elements;
     const { data, error, loading, setData } =
-        useFetch(APIEndpoints.ONE_PERSON + userName, { method: "GET", headers: { "Authorization": store.token } })
+        useFetchIndividual(APIEndpoints.ONE_PERSON + userName, { method: "GET", headers: { "Authorization": store.token } })
 
     if (loading) {
         elements = <Spinner />;
-    }else if(error){
+    } else if (error) {
+        console.log(error)
         elements = <Error />
-    }else if(data?.length == 0){
+    } else if (data?.length == 0) {
         elements = <NotFound />
-    }else if (data) {
+    } else if (data) {
         console.log("in prof", data)
         elements = (
             <>
                 {/* the navbar of the profile page */}
                 <div className='profile_header'>
                     <div className='header_image' style={{ "--background": randColor.background }}>
-                        <ProfilePicture userInfo={{ name: data?.name + " " + data?.lastName, image: APIEndpoints.HOSTNAME+data?.profilePictureUrl }} size={"large"} />
+                        <ProfilePicture userInfo={{ name: data?.name + " " + data?.lastName, image: APIEndpoints.HOSTNAME + data?.profilePictureUrl }} size={"large"} />
                     </div>
                     <ul className='profile_menu display_flex justify_content_center'>
                         <li className={state.name == components.Timeline.name ? 'active' : ''} onClick={() => setstate(components.Timeline)}>Timeline</li>

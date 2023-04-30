@@ -6,7 +6,7 @@ function getAuthInfoFromCookie() {
     console.log(data.get("profileImage"))
     if (data.size > 0) {
         return {
-            isAuthenticated: true,
+            isAuthenticated: data.get("userName") ? true : false,
             userName: data.get("userName"),
             name: data.get("name"),
             lastName: data.get("lastName"),
@@ -30,7 +30,7 @@ const initailState = {
         connections: 0,
     },
     lastChat: getCookie("lastChat"),
-    currentChat:""
+    currentChat: ""
 };
 
 const reducer = (state = initailState, action) => {
@@ -67,9 +67,9 @@ const reducer = (state = initailState, action) => {
                 currentChat: action.payload
             }
         case actions.ADD_PEOPLE:
-            return{
+            return {
                 ...state,
-                people:[...state?.people, action?.payload]
+                people: [...state?.people, action?.payload]
             }
 
 

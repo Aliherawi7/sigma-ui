@@ -4,11 +4,12 @@
     border-radius: 10px;
 }
 
-.card_header{
+.card_header {
     height: 50px;
     position: relative;
 }
-.card_header::after{
+
+.card_header::after {
     position: absolute;
     content: "";
     background-repeat: no-repeat;
@@ -33,14 +34,19 @@
     border: 1px solid #ddd;
 }
 
-.people .people_card_container{
-    margin-top: 10px;
+.people .people_card_container {
+    /* margin-top: 10px;
     flex-flow: wrap;
     height: 80vh;
-    overflow-y: scroll;
+    overflow-y: scroll; */
+
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.people .people_card{
+.people .people_card {
     width: 150px;
     height: 180px;
     padding: 10px;
@@ -50,36 +56,41 @@
     background-color: rgba(221, 221, 221, 0.09);
     flex-shrink: 0;
 }
-.people .profile_avatar{
+
+.people .profile_avatar {
     border: 2px solid var(--main_color);
     position: absolute;
     cursor: pointer;
     z-index: 10;
 }
-.people .people_card .profile_picture .profile_img_container{
+
+.people .people_card .profile_picture .profile_img_container {
     flex-direction: column;
     position: absolute;
     top: -20px;
     left: 45px;
 }
-.people .title{
+
+.people .title {
     cursor: pointer;
     font-size: 12px;
     margin-bottom: 5px;
 }
 
-.people .profile_info{
+.people .profile_info {
     text-align: center;
     padding-top: 30px;
 }
-.people .connections_posts .container{
+
+.people .connections_posts .container {
     margin: 0 10px;
 }
 
-.people .connections_posts span{
+.people .connections_posts span {
     font-size: 10px;
 }
-.people .connection_buttons button{
+
+.people .connection_buttons button {
     margin-top: 10px;
     padding: 4px 5px;
 }

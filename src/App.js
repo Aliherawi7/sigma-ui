@@ -31,7 +31,7 @@ function App() {
             <Wrapper>
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path="/people" element= {<People />} />
+                <Route path="/people" element={<People />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='load' element={<Spinner />} />
                 <Route path='/profile/:userName' element={<Profile />} />

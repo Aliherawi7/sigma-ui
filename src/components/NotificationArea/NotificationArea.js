@@ -22,7 +22,7 @@ function NotificationArea() {
         setFriendReqeust(data)
       });
 
-    fetch(APIEndpoints.ALL_FRIENDS(auth?.userName, 1, 15), {
+    fetch(APIEndpoints.ALL_FRIENDS(auth?.userName, 1, 5), {
       method: "GET",
       headers: { "authorization": auth.token }
     }).then(res => res.json())
