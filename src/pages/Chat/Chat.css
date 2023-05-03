@@ -1,32 +1,33 @@
-
-.chat{
+.chat {
     display: flex;
     justify-content: space-between;
 }
 
 /* message panel */
 
-.header{
+.header {
     margin-bottom: 10px;
     background: #29171a;
     padding: 8px;
     border-radius: 10px;
 }
-.header .contact_name_status{
+
+.header .contact_name_status {
     margin-left: 10px;
 }
 
-.header .contact_name_status .active_badge{
+.header .contact_name_status .active_badge {
     position: relative;
 }
-.header .last_seen{
+
+.header .last_seen {
     font-size: 10px;
     color: #ddd;
     text-align: left;
 }
 
 
-.messages_panel{
+.messages_panel {
     position: relative;
     width: 100%;
     display: flex;
@@ -34,20 +35,21 @@
     margin-left: 10px;
 }
 
-.messages_panel .messages_container{
+.messages_panel .messages_container {
     overflow-y: scroll;
-    max-height: 75vh;
+    max-height: 68vh;
 }
 
 
-.messages_container .receive_message{
+.messages_container .receive_message {
     align-self: flex-start;
 }
-.messages_container .send_message{
+
+.messages_container .send_message {
     align-self: flex-end;
 }
 
-.message_panel .message_value{
+.message_panel .message_value {
     text-align: left;
     padding: 10px;
     padding-right: 30px;
@@ -56,39 +58,42 @@
     max-width: 250px;
 }
 
-.message_panel .profile_avatar_small{
+.message_panel .profile_avatar_small {
     align-self: flex-start;
 }
 
-.receive_message , .send_message{
+.receive_message,
+.send_message {
     margin: 0 10px;
 }
 
-.receive_message .message_body .message_value{
+.receive_message .message_body .message_value {
     border-top-left-radius: 0;
     margin-left: 10px;
     background: #3e3e3e54;
 }
-.send_message .message_body .message_value{
+
+.send_message .message_body .message_value {
     border-top-right-radius: 0;
     margin-right: 10px;
     background: linear-gradient(to right, var(--main_color_light), var(--main_color));
 }
 
-.receive_message .message_body{
+.receive_message .message_body {
     align-items: flex-end;
 }
-.send_message .message_body{
+
+.send_message .message_body {
     align-items: flex-start;
 }
 
-.message_date{
+.message_date {
     font-size: 10px;
     color: #dddddda3;
 }
 
 
-.messages_panel .input_panel{
+.messages_panel .input_panel {
     border-radius: 10px;
     padding: 5px;
     background: #29171a;
@@ -100,6 +105,6 @@
     right: 0;
 }
 
-.messages_panel .input_panel i{
+.messages_panel .input_panel i {
     font-size: 18px;
 }

@@ -31,7 +31,7 @@ function useFetchIndividual(url, options) {
 
     }, [url])
 
-    return { data, error, loading }
+    return { data, error, loading, setData }
 }
 
 

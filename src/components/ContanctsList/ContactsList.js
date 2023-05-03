@@ -10,7 +10,7 @@ import Spinner from '../UI/Loading/Spinner';
 import "./ContactsList.css";
 
 
-function ContactsList({ setCurrentChat }) {
+function ContactsList({ setCurrentChat, setLoading }) {
     const auth = useSelector(state => state.authentication)
     const dispatch = useDispatch();
     const [pagination, setPagination] = useState({ offset: 1, pageSize: 12 })
@@ -18,12 +18,14 @@ function ContactsList({ setCurrentChat }) {
     const { data, error, loading, setData, hasMore } =
         useFetch(APIEndpoints.ALL_FRIENDS(auth.userName, pagination.offset, pagination.pageSize), { method: "GET", headers: { "Authorization": auth.token } });
     const currentChat = (username) => {
+        console.log(username)
         setCookie("lastChat", username, 20)
         dispatch({
             type: actions.CURRENT_CHAT,
             payload: username
         })
         setCurrentChat(username)
+        setLoading(true)
 
     }
     useEffect(() => {
@@ -43,6 +45,8 @@ function ContactsList({ setCurrentChat }) {
         })
         if (node) lastNode.current.observe(node);
     }
+
+
 
 
     let element;
