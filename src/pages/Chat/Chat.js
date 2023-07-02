@@ -54,7 +54,7 @@ function Chat() {
                 }).then(resData => {
                     setMessages(resData)
                     setLoading(false)
-                    messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight
+                    // messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight
                     // console.log(messages)
                     // console.log(resData)
                 })

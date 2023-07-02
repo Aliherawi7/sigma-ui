@@ -2,12 +2,16 @@ import React from 'react'
 import "./Post.css"
 import { Icons } from '../../constants/UiConstant'
 import ProfilePicture from '../UI/ProfilePicture/ProfilePicture'
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '../../constants/PathURL'
 
 function Post({userInfo, date, images=[], reactions}) {
+    console.log(userInfo)
+    const navigate = useNavigate()
     return (
         <div className='post'>
             <div className='connection_post box_shadow background_color '>
-                <div className='post_header'>
+                <div className='post_header' onClick = {()=> navigate(Paths.PROFILE + "/" + userInfo?.name)}>
                     <ProfilePicture userInfo={userInfo} date={date}/>
                     <span className='post_setting'><i className={Icons.threeDots}></i></span>
                 </div>
